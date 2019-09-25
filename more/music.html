@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/music.css">
+    <link rel="stylesheet" href="../font_shi/iconfont.css">
+    <script src="../font_shi/iconfont.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        .i-none{
+            width: 466px;
+            height: 256px;
+            position: absolute;
+            top: 56px;
+            left: 113px;
+            display: none;
+            border-radius:5px;
+            /*box-shadow:;*/
+            background: url("../images/music/tou头像.jpg") no-repeat whitesmoke;
+        }
+        @keyframes play {
+            0%{
+                transform: translate(0,0);
+            }
+            100%{
+                transform: translate(-1px,-5px);
+            }
+        }
+        @keyframes play1{
+            0%{
+                background-position:0 0;
+            }
+            20%{
+                background-position:-160px 0;
+            }
+            40%{
+                background-position:-320px 0;
+            }
+            60%{
+                background-position:-480px 0;
+            }
+            80%{
+                background-position:-640px 0;
+            }
+            100%{
+                background-position:-800px 0;
+            }
+        }
+        @keyframes danmu1{
+            0%{
+                left:180px;
+            }
+            20%{
+                left:130px;
+            }
+            40%{
+                left:80px;
+            }
+            60%{
+                left:30px;
+            }
+            80%{
+                left:-20px;
+            }
+            100%{
+                left:-70px;
+            }   
+        }
+        @keyframes danmu2{
+            0%{
+                left:240px;
+            }
+            20%{
+                left:180px;
+            }
+            40%{
+                left:120px;
+            }
+            60%{
+                left:60px;
+            }
+            80%{
+                left:0px;
+            }
+            100%{
+                left:-60px;
+            }   
+        }
+        @keyframes danmu3{
+            0%{
+                left:240px;
+            }
+            10%{
+                left:180px;
+            }
+            20%{
+                left:120px;
+            }
+            30%{
+                left:60px;
+            }
+            40%{
+                left:0px;
+            }
+            50%{
+                left:-60px;
+            }   
+            60%{
+                left:-120px;
+            }
+            70%{
+                left:-180px;
+            }
+            80%{
+                left:-240px;
+            }
+            90%{
+                left:-300px;
+            }
+            100%{
+                left:-360px;
+            }   
+        }
+        .left_li_3:hover>div{
+            animation: play 0.5s forwards;
+            display:block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="backtotop">
+        ↑
+    </div>
+
+
+    <div class="header">
+        <div class="header_color">
+            <div class="header_top">
+                <div class="top_left">
+                    <ul>
+                        <li class="left_li_1"><i class="iconfont icon-bilibili bilibi-tv"></i><a href="" title="主站">主站</a></li>
+                        <li class="left_li_2"><a href="" title="音频">音频</a></li>
+                        <li class="left_li_3"><a href="" title="游戏中心">游戏中心</a>
+                            <div class="i-none" style="width: 400px;height: 250px;" ></div>
+                        </li>
+                        <li class="left_li_4"><a href="" title="直播">直播</a></li>
+                        <li class="left_li_5"><a href="" title="会员购">会员购</a></li>
+                        <li class="left_li_6"><a href="" title="漫画">漫画</a></li>
+                        <li class="left_li_7"><a href="">BW</a></li>
+                        <li class="left_li_8"><a href="">70年</a></li>
+                        <li class="left_li_9"><i class="iconfont icon-shouji bilibi-shouji"></i><a href="">下载APP</a></li>
+                    </ul>
+                </div>
+                <div class="top_rigth">
+                    <img src="../images/music/tou头像.jpg" alt="">
+                    <ul>
+                        <li><a href="#">动态</a></li>
+                        <li><a href="#">历史</a></li>
+                    </ul>
+                </div>
+                <div class="top_rigth_r">
+                    <a href="" >投稿</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <ul class="nav-menu">
+            <li><i class="iconfont icon-fangzi bilibi-fangzi"></i><p>首页</p></li>
+            <li><span>999+</span><p>动画</p></li>
+            <li><span>523+</span><p>番剧</p></li>
+            <li><span>999+</span><p>国创</p></li>
+            <li class="music"><span>999+</span><p>音乐</p></li>
+
+            <li><span>999+</span><p>舞蹈</p></li>
+            <li><span>999+</span><p>游戏</p></li>
+            <li><span>999+</span><p>科技</p></li>
+            <li><span>999+</span><p>数码</p></li>
+            <li><span>999+</span><p>生活</p></li>
+            <li><span>999+</span><p>鬼畜</p></li>
+            <li><span>999+</span><p>时尚</p></li>
+            <li><span>999+</span><p>广告</p></li>
+            <li><span>999+</span><p>娱乐</p></li>
+            <li><span>999+</span><p>影视</p></li>
+            <li><span>999+</span><p>放映厅</p></li>
+            <li class="nav-icon"> <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-zhuanlan"></use>
+                 </svg><p><a href="">专栏</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-fuwuzhinanlubiao  bilibi-fuwuzhinanlubiao "></i>
+                <p><a href="">广场</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-zhibobofangshexiangjiguankanxianxing  bilibi-zhibobofangshexiangjiguankanxianxing "></i>
+                <p><a href="">直播</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-tianping  bilibi-tianping "></i>
+                <p><a href="ban-bilibili.html">小黑屋</a></p></li>
+            <li class="nav-gif"><img src="../images/music/nav-menu.gif" alt=""></li>
+        </ul>
+        
+    </nav>
+    <!--中部一-->
+    <div class="main">
+        <div class="main-navi">
+            <li><a href="">全部</a></li>
+            <li><a href="">原创音乐</a></li>
+            <li><a href="">翻唱</a></li>
+            <li><a href="">VOCALOID.UTAU</a></li>
+            <li><a href="">电音</a></li>
+            <li><a href="">演奏</a></li>
+            <li><a href="">MV</a></li>
+            <li><a href="">音乐现场</a></li>
+            <li><a href="">音乐综合</a></li>
+            <li><a href="">音频</a></li>
+        </div>
+        <div class="main-all">
+            <div class="main-in1">
+                <div class="main-in1-d" >
+                    <ul class="main-in1-d-uls" id="uls">
+                        <li class="main-in1-d-uls-l"><a href=""><img src="../images/music/lunbo1.png" alt=""><p>花泽香菜闪现&nbsp;！</p></a></li>
+                        <li><a href=""><img src="../images/music/lunbo2.png" alt=""><p>来美丽中国支教，育人遇自己</p></a></li>
+                        <li><a href=""><img src="../images/music/lunbo3.jpg" alt=""><p>神仙阵容，良曲爆炸!</p></a></li>
+                        <li><a href=""><img src="../images/music/lunbo4.jpg" alt=""><p>双马尾就是正义！歌系vtuber入驻</p></a></li>
+                        <li><a href=""><img src="../images/music/lunbo5.jpg" alt=""><p>东北府嘎嘎的，可得劲啦&nbsp;！</p></a></li>
+                        <li><a href=""><img src="../images/music/lunbo1.png" alt=""><p>花泽香菜闪现&nbsp;！</p></a></li>
+                    </ul>
+                    <ul class="main-in1-d-ols">
+                        <li class="selected"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    
+                </div>
+                <div class="main-in1-d1">
+                        <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd1.jpg" alt="">
+                        <span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">日语版《芒种》翻唱【花丸晴琉/花寄女生宿舍】</p>
+                            <p class="author">up主:花丸晴琉Official<br>播放量：4396</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd2.jpg" alt=""><span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">【海伊原创】镜花水月—过于自恋的水母被晒化辽   『海盼伊人』No.2</p>
+                            <p class="author">up主：-秦夜泊-<br>播放：1828</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd3.jpg" alt="">
+                        <span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">电音遇上二胡 |《杨柳青》Remix feat.司鼓君</p>
+                            <p class="author">up主：柠露Lemon<br>播放：7764</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd4.jpg" alt="">
+                        <span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">SEVENTEEN最新回归曲【毒Fear】 MV公开</p>
+                            <p class="author">up主：pcyxjy<br>播放：2.1万</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd5.jpg" alt="">
+                        <span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">【碎花】面影 feat.TsukiMoon月月【日文原创】</p>
+                            <p class="author">up主：Sawako碎花子<br>播放：3616</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-in1-sd">
+                        <img src="../images/music/main-in1-sd6.jpg" alt="">
+                        <span>翻唱</span>
+                        <div class="main-in1-sd-slide">
+                            <p class="title">【最萌翻唱】她曾活过啊(mv已授权)</p>
+                            <p class="author">up主：莉姬女王<br>播放：5789</p>
+                            <div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+            
+            </div>
+            <div class="head-one">
+                <div class="main-high">
+                    <span>前方高能</span>
+                </div>
+
+                <div class="main-well">
+                    <span>话题精选</span>
+                </div>
+            </div>
+            <div class="head-two">
+                <div class="main-story">
+                    <div class="main-story-d">
+                        <div class="main-story-d-img" style="background-image: url(../images/music/main-story-d1.jpg)">
+                        </div>
+                        <p class="main-story-d-dm1">既然寻求刺激，那就贯彻到底咯</p>
+                        <p class="main-story-d-dm2">你好骚啊</p>
+                        <p class="main-story-d-dm3">你怎么穿着品如的衣服</p>
+                        <p class="main-story-d-p">【音阙诗听/赵方婧】《木桥小谣》这也许是DJ版？</p>
+                        <img src="../images/music/ltv.png" alt="" class="main-story-d-ltv">
+                    </div>
+                    <div class="main-story-d">
+                        <div class="main-story-d-img" style="background-image: url(../images/music/main-story-d2.jpg)">
+                        </div>
+                        <p class="main-story-d-dm1">既然寻求刺激，那就贯彻到底咯</p>
+                        <p class="main-story-d-dm2">你好骚啊</p>
+                        <p class="main-story-d-dm3">你怎么穿着品如的衣服</p>
+                        <p class="main-story-d-p">【某幻/老番茄】最强脱发王</p>
+                        <img src="../images/music/ltv.png" alt="" class="main-story-d-ltv">
+                    </div>
+                    <div class="main-story-d">
+                        <div class="main-story-d-img" style="background-image: url(../images/music/main-story-d3.jpg)">
+                        </div>
+                        <p class="main-story-d-dm1">既然寻求刺激，那就贯彻到底咯</p>
+                        <p class="main-story-d-dm2">你好骚啊</p>
+                        <p class="main-story-d-dm3">你怎么穿着品如的衣服</p>
+                        <p class="main-story-d-p">谁是你心中的国漫OST冠军？揭秘百万调音师的背后【音乐叨哔叨】</p>
+                        <img src="../images/music/ltv.png" alt="" class="main-story-d-ltv">
+                    </div>
+                    <div class="main-story-d">
+                        <div class="main-story-d-img" style="background-image: url(../images/music/main-story-d4.jpg)">
+                        </div>
+                        <p class="main-story-d-dm1">既然寻求刺激，那就贯彻到底咯</p>
+                        <p class="main-story-d-dm2">你好骚啊</p>
+                        <p class="main-story-d-dm3">你怎么穿着品如的衣服</p>
+                        <p class="main-story-d-p">【萧忆情X小曲儿】琴破——“伯牙破琴”</p>
+                        <img src="../images/music/ltv.png" alt="" class="main-story-d-ltv">
+
+                    </div>
+                    <div class="main-story-d">
+                        <div class="main-story-d-img" style="background-image: url(../images/music/main-story-d5.jpg)">
+                        </div>
+                        <p class="main-story-d-dm1">既然寻求刺激，那就贯彻到底咯</p>
+                        <p class="main-story-d-dm2">你好骚啊</p>
+                        <p class="main-story-d-dm3">你怎么穿着品如的衣服</p>
+                        <p class="main-story-d-p">唢呐 名侦探柯南主题曲 不小心做出了土嗨的感觉(￣▽￣)</p>
+                        <img src="../images/music/ltv.png" alt="" class="main-story-d-ltv">
+
+                    </div>
+                </div>
+
+                <div class="img-well">
+                            <img src="../images/music/huati.jpg" alt="">
+                            <ul class="img-uls">
+                                <a href="">等你来参加~</a>
+                            </ul>
+                </div>
+            </div>
+
+            <div class="guanggao-img">
+                <img src="../images/music/guanggao.png" alt="">
+                <img src="../images/music/cm_2.png" alt="" class="guanggao">
+            </div>
+
+            <div class="mv">
+                <div class="mv-left">
+                        <div class="mv-left-head">
+                            <a href="">MV</a>
+                            <div class="mv-left-tab">
+                                <div class="mv-left-tab-a">有新动态</div>
+                                <div class="mv-left-tab-a">最新投稿</div>
+                            </div >
+                            <div class="mv-left-tags">
+                                <ul>
+                                    <li><i class="icon"></i>华语MV</li>
+                                    <li><i class="icon"></i>欧美MV</li>
+                                    <li><i class="icon"></i>日语MV</li>
+                                    <li><i class="icon"></i>韩语MV</li>
+                                    <li><i class="icon"></i>国语MV</li>
+                                </ul>
+                            </div>
+                            <div class="mv-left-fresh">
+                                <i class="icon"  style="background-position:-472px -86px"></i>
+                                <p>79条新动态</p>
+                            </div>
+                            <div class="mv-left-more">
+                                <p>更多</p>
+                                <i class="icon"  style="background-position:-474px -214px"></i>
+                                
+                            </div>
+                        </div>
+                        <div class="mv-left-foot">
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv1.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【音阙诗听/王梓钰】《惊蛰》间奏超长！必须蹦迪！</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>9.4万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>3514</span>
+                                </div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div>
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv2.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>这是历史上第一首中德说唱歌曲</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>2591</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>40</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div>                    
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv3.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>HIMEHINA『泡沫啊请不要离去』MV【个唱前夕】</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>5.6万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>582</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv4.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【东方remix】春色小径 ～ Colorful Path【Lucca】[纯音乐][电音]</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>9395</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>10</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv5.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>《开心红豆》MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>8.2万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>408</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv6.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【HOYA】 - Angel高清MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>192</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>3</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv7.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【林俊杰】《对的时间点》MV完整版</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>3072</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>24</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv8.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【YouTube】Take Me Down--Herobrine的歌，见识见识无人可挡的王的宣言吧！</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>3.6万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>528</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv9.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【这首歌送给所有舔狗和备胎</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>91.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>4304</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv10.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【WORLD ORDER/世界秩序】官方高清MV合集</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>5.6万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>683</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv11.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【1080P】周杰伦 - 告白气球原版MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>27.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>758</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv12.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>{收藏级画质} Britney Spears feat. Madonna - Me Against The Music【母带原画】</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>1.3万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>55</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv13.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>火箭少女101《Light》练习室版 MV闪亮登场</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>81.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>9860</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv14.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【郑号锡】J-hope mixtape——《Daydream》白日梦MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>2.6万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>343</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mmv15.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【1080P蓝光】R1SE《就要掷地有声的炸裂》MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>5.0万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>1560</span>
+                                </div>
+                                <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                        </div>
+                        <div class="mv-left-foot">
+                            
+
+
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv1.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>周杰伦《说好不哭》</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>1.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>581</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv2.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>TWICE 最新主打歌曲“Feel Special”高清MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>9</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>0</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv3.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>1982-03-13 邓丽君  君在前哨 金钟奖 完整版</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>1</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>0</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv4.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【Tom MacDonald】新歌发布！Buttholes.</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>2588</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>13</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv5.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>Rich Brian - Cold 一个黑人嗓音 美帝口音 黄人面孔 混蛋年龄 来自印度尼西亚的天才少年</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>12.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>581</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv6.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>林彦俊生日单曲《对手》MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>6.9万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>2071</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv7.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>唯美影音《菊花台》电影《满城尽带黄金甲》片尾曲周杰伦演唱_高清</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>11.1万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>338</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv8.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>蔡徐坤的新歌:《Wait Wait Wait》MV</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>135.6万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>2.0万</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv9.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【官方】吴亦凡《大碗宽面》MV（动画版）</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>1124.2万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>16.5万</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv10.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>［囧菌和少爷］卧槽太甜了叭！</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>1.2万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>23</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>音源大雾！脸红的思春期最新回归曲【工作狂】MV+首舞台公开</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>16.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>563</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv12.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>斯坦福学生Diss哈佛了哈哈哈哈！！期待diss back！！</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>102.7万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>3379</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv13.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>谭咏麟《雨夜的浪漫》经典现场</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>296</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>1</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/nmv14.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>【说好不哭】假如说好不哭的mv是李现杨紫演的</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>6628</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>26</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="" class="waiting">
+                            </div> 
+                            <div class="mv-left-mv">
+                                <div class="mv-left-mv-vedio" style="background:url(../images/music/mv2.jpg)">
+                                    
+                                </div>
+                                <div class="mv-left-mv-foot">
+                                    <p>谭维维-灯塔【我是歌手】</p>
+                                </div>
+                                <div class="mv-left-mv-foot-slide">
+                                        <span class="plays"><i class="icon"  style="background-position: -280px -88px"></i>12.5万</span>
+                                        <span class="danmu" ><i class="icon" style="background-position: -280px -216px"></i>581</span>
+                                </div>
+                                 <img src="../images/music/ltv.png" alt="">
+                            </div> 
+                        </div>
+                </div>
+                <div class="mv-right">
+                        <div class="mv-right-head">
+                            <p>热门</p>
+                            <div class="mv-right-tab">
+                                <div class="mv-right-tab-a">全部</div>
+                                <div class="mv-right-tab-a">原创</div>
+                            </div >
+                        </div>
+                        <div class="mv-right-foot">
+                            <ul class="mv-right-foot-uls" >
+                                <li title="《回家的诱惑》 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>《回家的诱惑》</p>
+                                            <p style="color:#99a2aa">林品如&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph1.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>&nbsp;&nbsp;在周围人的眼中，林品如与洪世贤是一对让人欣羡的模范情侣，二人郎才女貌，天作碧合，但是家家都有一本难念的经。<br>&nbsp;&nbsp;随着时光的流逝，婚姻之初的浪漫情怀渐渐转淡，取而代之的是生活中的各种现实问题。<br>&nbsp;&nbsp;品如因始终未能怀孕而遭到婆婆指摘，日常生活里充满了磕磕绊绊。与此同时，品如留学法国的闺蜜艾莉突然带着小男孩尚恩回国，而尚恩竟然是世贤的亲生骨肉。艾莉为了挽回失去的恋情，不惜向好友宣战。而品如也在这连绵的家庭和爱情战火中日渐疲累。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm">1</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph1.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">《回家的诱惑》</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：9.3万</p>
+                                    </div>
+                                </li>
+                                <li title="KARD最新回归曲Dumb Litty MV公开 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>KARD最新回归曲Dumb Litty MV公开</p>
+                                            <p style="color:#99a2aa">pcyxjy&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph2.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>KARD最新回归曲Dumb Litty MV公开</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+                                    </div>
+                                    <i class="pm">2</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph2.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">KARD最新回归曲Dumb Litty MV公开</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：7.3万</p>
+                                    </div>
+                                </li> 
+
+
+
+                                <li title="《千浔》MV 队长林玥妍solo曲强势回归！ 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>《千浔》MV 队长林玥妍solo曲强势回归！</p>
+                                            <p style="color:#99a2aa">Ace组合&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph3.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>四千年前孔雀河畔，盛极一时的楼兰古国离奇消亡。千年来，沙漠中流传着楼兰公主神秘呼唤的传说，吸引着诸多学者纷纷踏上罗布泊。少女和伙伴带着同样的好奇来到这片荒漠。她在梦中寻找，她在沙漠舞蹈，时光交错，揭开隐秘的面纱，发现彼此拥有同样的脸庞......此次mv由知名导演35ryo操刀，七味团队担任美术设计，主题打歌服更是邀请著名设计师一空量身打造。mv整体结构上也延续了ace组合一贯的呈现方式，将舞蹈和剧情巧妙结合。为了呈现更加真实，林玥妍及团队远赴沙漠，在38度高温下完成了两天的拍摄。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm">3</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph3.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">【Ace】电子异域风 探梦楼兰 《千浔》MV 队长林玥妍solo曲强势回归！</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：2.4万</p>
+                                    </div>
+                                </li>
+
+
+                                <li title="【SuperM】泰民预告！+预告解析 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【SuperM】泰民预告！+预告解析</p>
+                                                <p style="color:#99a2aa">SuperM-超级满专属站&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph4.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>SuperM官方</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                    <i class="pm1">4</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【SuperM】泰民预告！+预告解析</p>
+                                        
+                                    </div>
+                                </li>
+
+                                <li title="【泫雅再次热搜登顶】性感不是低俗？伴舞小姐姐表情亮了？190919现场舞台高清4K直拍全场合集" class="b-li"><div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【泫雅再次热搜登顶】性感不是低俗</p>
+                                            <p style="color:#99a2aa">宋西涛&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph5.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>泫雅 - BABE</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">5</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【泫雅再次热搜登顶】性感不是低俗？伴舞小姐姐表情亮了？190919现场舞台高清4K直拍全场合集</p>
+                                            
+                                        </div>
+                                </li>
+
+
+                                <li title="爆肝30小时！！！全球首发裸眼3D版《说好不哭》 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>爆肝30小时！！！全球首发裸眼3D版《说好不哭》</p>
+                                                <p style="color:#99a2aa">大刘影业&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph6.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>爆肝30小时制作，P图几千张，喜欢的话，一键三连哦~</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">6</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【爆肝30小时！！！全球首发裸眼3D版《说好不哭》</p>
+                                            
+                                        </div>
+                                </li>
+
+
+                                <li title="8 - b i t 影 流 之 主 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【8 - b i t】 影 流 之 主</p>
+                                                <p style="color:#99a2aa">嘉嘉嘉JiayeJiaJiaye&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph7.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>8 - b i t 影 流 之 主<br>
+                                                        低技术力自制，求老铁萌三连嗷，奥利给</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">7</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【8 - b i t】 影 流 之 主</p>
+                                            
+                                        </div>
+                                </li>
+
+
+
+
+
+
+
+                                <li title="【初音未来鬼畜】翻 滚 少 女（洗衣机少女） 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【初音未来鬼畜】翻 滚 少 女（洗衣机少女）</p>
+                                                <p style="color:#99a2aa">点滴miku&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph7.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>初音毛绒公仔可不能这么洗啊哈哈哈哈~<br>
+                                                        视频BGM：wowaka,初音ミク - ローリンガール<br>
+                                                        视频素材取自各大沙雕网友聊天图片，嘿嘿嘿~</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">8</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【初音未来鬼畜】翻 滚 少 女（洗衣机少女）</p>
+                                            
+                                        </div>
+                                </li>
+
+
+
+
+
+                                <li title="【SV苍穹翻唱】爱人【邓丽君】 播放:6239" class="b-li">
+                                <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【SV苍穹翻唱】爱人【邓丽君】</p>
+                                            <p style="color:#99a2aa">JUSF周存&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph8.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>摸鱼，翻了一首邓丽君的歌~</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm1">9</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【SV苍穹翻唱】爱人【邓丽君】</p>
+                                        
+                                    </div>
+                                </li>
+                                <li title="【祖娅纳惜×食物语】临安小记 · 江南印象曲 播放:27493 3:59" class="b-li">
+                                <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【祖娅纳惜×食物语】临安小记 · 江南印象曲</p>
+                                            <p style="color:#99a2aa">祖娅纳惜&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/phmv.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>&nbsp;&nbsp;嘻嘻嘻。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm1">10</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【祖娅纳惜×食物语】临安小记 · 江南印象曲</p>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mv-right-foot-more">
+
+                                    查看更多&nbsp;>
+                                </div>
+                                </li>
+                            </ul> 
+                            
+                        </div>
+                        <div class="mv-right-foot">
+                            <ul class="mv-right-foot-uls" >
+                                <li title="《回家的诱惑》1 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>《回家的诱惑》1</p>
+                                            <p style="color:#99a2aa">林品如1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph1.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>&nbsp;&nbsp;在周围人的眼中，林品如与洪世贤是一对让人欣羡的模范情侣，二人郎才女貌，天作碧合，但是家家都有一本难念的经。<br>&nbsp;&nbsp;随着时光的流逝，婚姻之初的浪漫情怀渐渐转淡，取而代之的是生活中的各种现实问题。<br>&nbsp;&nbsp;品如因始终未能怀孕而遭到婆婆指摘，日常生活里充满了磕磕绊绊。与此同时，品如留学法国的闺蜜艾莉突然带着小男孩尚恩回国，而尚恩竟然是世贤的亲生骨肉。艾莉为了挽回失去的恋情，不惜向好友宣战。而品如也在这连绵的家庭和爱情战火中日渐疲累。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm">1</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph1.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">《回家的诱惑》1</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：9.3万</p>
+                                    </div>
+                                </li>
+                                <li title="KARD最新回归曲Dumb Litty MV公开1 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>KARD最新回归曲Dumb Litty MV公开1</p>
+                                            <p style="color:#99a2aa">pcyxjy1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph2.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>KARD最新回归曲Dumb Litty MV公开1</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+                                    </div>
+                                    <i class="pm">2</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph2.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">KARD最新回归曲Dumb Litty MV公开1</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：7.3万</p>
+                                    </div>
+                                </li> 
+
+
+
+                                <li title="《千浔》MV 队长林玥妍solo曲强势回归！1 播放:27493 3:59">
+                                    <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>《千浔》MV 队长林玥妍solo曲强势回归！1</p>
+                                            <p style="color:#99a2aa">Ace组合1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph3.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>四千年前孔雀河畔，盛极一时的楼兰古国离奇消亡。千年来，沙漠中流传着楼兰公主神秘呼唤的传说，吸引着诸多学者纷纷踏上罗布泊。少女和伙伴带着同样的好奇来到这片荒漠。她在梦中寻找，她在沙漠舞蹈，时光交错，揭开隐秘的面纱，发现彼此拥有同样的脸庞......此次mv由知名导演35ryo操刀，七味团队担任美术设计，主题打歌服更是邀请著名设计师一空量身打造。mv整体结构上也延续了ace组合一贯的呈现方式，将舞蹈和剧情巧妙结合。为了呈现更加真实，林玥妍及团队远赴沙漠，在38度高温下完成了两天的拍摄。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm">3</i>
+                                    <div class="mv-right-foot-uls-pre">
+                                        <img src="../images/music/ph3.jpg" alt="">
+                                    </div>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p1">【Ace】电子异域风 探梦楼兰 《千浔》MV 队长林玥妍solo曲强势回归！1</p>
+                                        <p class="mv-right-foot-uls-p2">综合评分：2.4万</p>
+                                    </div>
+                                </li>
+
+
+                                <li title="【SuperM】泰民预告！+预告解析 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【SuperM】泰民预告！+预告解析1</p>
+                                                <p style="color:#99a2aa">SuperM-超级满专属站1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph4.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>SuperM官方</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                    <i class="pm1">4</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【SuperM】泰民预告！+预告解析1</p>
+                                        
+                                    </div>
+                                </li>
+
+                                <li title="【泫雅再次热搜登顶】性感不是低俗？伴舞小姐姐表情亮了？190919现场舞台高清4K直拍全场合集1" class="b-li"><div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【泫雅再次热搜登顶】性感不是低俗1</p>
+                                            <p style="color:#99a2aa">宋西涛&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph5.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>泫雅 - BABE</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">5</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【泫雅再次热搜登顶】性感不是低俗？伴舞小姐姐表情亮了？190919现场舞台高清4K直拍全场合集1</p>
+                                            
+                                        </div>
+                                </li>
+
+
+                                <li title="爆肝30小时！！！全球首发裸眼3D版《说好不哭》1 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>爆肝30小时！！！全球首发裸眼3D版《说好不哭》1</p>
+                                                <p style="color:#99a2aa">大刘影业1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph6.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>爆肝30小时制作，P图几千张，喜欢的话，一键三连哦~</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">6</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【爆肝30小时！！！全球首发裸眼3D版《说好不哭》1</p>
+                                            
+                                        </div>
+                                </li>
+
+
+                                <li title="8 - b i t 影 流 之 主 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【8 - b i t】 影 流 之 主1</p>
+                                                <p style="color:#99a2aa">嘉嘉嘉JiayeJiaJiaye1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph7.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>8 - b i t 影 流 之 主<br>
+                                                        低技术力自制，求老铁萌三连嗷，奥利给</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">7</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【8 - b i t】 影 流 之 主1</p>
+                                            
+                                        </div>
+                                </li>
+
+
+
+
+
+
+
+                                <li title="【初音未来鬼畜】翻 滚 少 女（洗衣机少女）1 播放:27493 3:59" class="b-li">
+                                    <div class="mv-right-foot-uls-fl">
+                                            <div class="mv-right-foot-uls-fl-head">
+                                                <p>【初音未来鬼畜】翻 滚 少 女（洗衣机少女）1</p>
+                                                <p style="color:#99a2aa">点滴miku1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body">
+                                                <div class="mv-right-foot-uls-fl-body-left">
+                                                    <img src="../images/music/ph7.jpg" alt="">
+                                                </div>
+                                                <div class="mv-right-foot-uls-fl-body-right">
+                                                    <p>初音毛绒公仔可不能这么洗啊哈哈哈哈~<br>
+                                                        视频BGM：wowaka,初音ミク - ローリンガール<br>
+                                                        视频素材取自各大沙雕网友聊天图片，嘿嘿嘿~</p>
+                                                </div>
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-foot">
+                                                <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                                <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                                <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                                <div><i class="icon"></i>700</div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <i class="pm1">8</i>
+                                        <div class="mv-right-foot-uls-p">
+                                            <p class="mv-right-foot-uls-p3">【初音未来鬼畜】翻 滚 少 女（洗衣机少女）1</p>
+                                            
+                                        </div>
+                                </li>
+
+
+
+
+
+                                <li title="【SV苍穹翻唱】爱人【邓丽君】1 播放:6239" class="b-li">
+                                <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【SV苍穹翻唱】爱人【邓丽君】1</p>
+                                            <p style="color:#99a2aa">JUSF周存1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/ph8.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>摸鱼，翻了一首邓丽君的歌~</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm1">9</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【SV苍穹翻唱】爱人【邓丽君】1</p>
+                                        
+                                    </div>
+                                </li>
+                                <li title="【祖娅纳惜×食物语】临安小记 · 江南印象曲 播放:27493 3:59" class="b-li">
+                                <div class="mv-right-foot-uls-fl">
+                                        <div class="mv-right-foot-uls-fl-head">
+                                            <p>【祖娅纳惜×食物语】临安小记 · 江南印象曲1</p>
+                                            <p style="color:#99a2aa">祖娅纳惜1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2019-09-15 22:17</p>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-body">
+                                            <div class="mv-right-foot-uls-fl-body-left">
+                                                <img src="../images/music/phmv.jpg" alt="">
+                                            </div>
+                                            <div class="mv-right-foot-uls-fl-body-right">
+                                                <p>&nbsp;&nbsp;嘻嘻嘻。</p>
+                                            </div>
+                                        </div>
+                                        <div class="mv-right-foot-uls-fl-foot">
+                                            <div><i class="icon" style="background-position: -280px -88px"></i>8419</div>
+                                            <div><i class="icon" style="background-position: -282px -216px"></i>960</div>
+                                            <div><i class="icon" style="background-position: -280px -343px"></i>957</div>
+                                            <div><i class="icon"></i>700</div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <i class="pm1">10</i>
+                                    <div class="mv-right-foot-uls-p">
+                                        <p class="mv-right-foot-uls-p3">【祖娅纳惜×食物语】临安小记 · 江南印象曲1</p>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mv-right-foot-more">
+
+                                    查看更多&nbsp;>
+                                </div>
+                                </li>
+                            </ul> 
+                            
+                        </div>
+                </div>
+            </div>
+            <!-- 分割线 -->
+            
+    
+        </div>
+        <div class="foot">
+            
+        </div>
+
+    </div>
+    <div class="foot">
+        <ul>
+            <li>
+                <h6>bilibili</h6>
+                <a href="">关于我们</a>
+                <a href="">联系我们</a>
+                <a href="">加入我们</a>
+                <br>
+                <a href="">友情链接</a>
+                <a href="">bilibili认证</a>
+                <a href="">Investor&nbsp;Relations</a>
+            </li>
+            <li style="margin-left:12px">
+                <h6>传送门</h6>
+                <a href="">帮助中心</a>
+                <a href="">高级弹幕</a>
+                <a href="">活动专题页</a>
+                <br>
+                <a href="">侵权申诉</a>
+                <a href="">活动中心</a>
+                <a href="">用户反馈论坛</a>
+                <br>
+                <a href="">壁纸站</a>
+                <a href="">名人堂</a>
+                <a href="">专车号服务中心</a>
+            </li>
+            <li  style="width:354px;border-right:0px;margin-left:20px">
+                <div>
+                   <div class="al">
+                       <div class="ma">二维码呀</div>
+                   </div>
+                   客户端下载
+                </div>
+                <div>
+                    <div class="bl" >
+                         <div class="ma">二维码呀</div>
+                    </div>
+                    新浪微博
+                </div>
+                <div>
+                     <div class="cl" >
+                          <div class="ma">二维码呀</div>
+                     </div>
+                     官方微信
+                </div>
+            </li>
+        </ul>
+        <div class="anquan">
+            <div class="anquan1">
+                <img src="../images/music/anquan1.png" alt="">
+                <img src="../images/music/anquan2.png" alt="" class="teshu">
+                <img src="../images/music/anquan.png" alt="" class="bianhua">
+            </div>
+            <div class="anquan2">
+                <p>广播电视节目制作经营许可证：（沪）字第1248号 | 网络文化经营许可证：沪网文[2016]2296-134号 | 信息网络传播视听节目许可证：0910417 | 互联网ICP备案：<a href="">沪ICP备13002172号-3</a></p>
+                <p>沪ICP证：沪B2-20100043 | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3 | <a href="">营业执照</a></p>
+                <p>
+                    <a href=""><i class="icon" style="background-position:-1366px -87px"></i>上海互联网举报中心</a>
+                    |
+                    <a href=""><i>12318&nbsp;</i>全国文化市场举报网站</a>
+                    |
+                    <a href=""><img src="../images/music/gongan.png" alt=""> 沪公网安备 31011002002436号 </a>
+                    |
+                    <a href="">儿童色情信息举报专区</a>
+                </p>
+                <p>
+                    <a href="">网上有害信息举报专区：<img src="../images/music/gongan1.png" alt="">中国互联网违法和不良信息举报中心</a>
+                </p>
+                <p>亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</p>
+                <p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 电话：021-25099888</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        $(function(){
+            var num = 0;   
+            var a=0;    
+            var timer;
+            var timer1;
+            var timer2;
+            var cc=0;
+            var num1;
+            function go(){
+
+                    if ($(window).scrollTop()>200) {
+                        $(".backtotop").css('display', 'block');
+                    }
+                    else{
+                         $(".backtotop").css('display', 'none');
+                    }
+
+                    timer= setInterval(function(){
+                            
+                            num++;
+                            
+                            if(num>5){
+                                num=0;
+                                $('#uls').css('margin-left', -620*num+'px');
+                                
+                                num=1;
+                            }
+                            if (num>4) {
+                                num1 = 0;
+                            }else{
+                                num1=num;
+                            }
+                            
+                            $('#uls').animate({
+                                'margin-left':-620*num+'px'
+                            },1000)
+
+                            $(".main-in1-d-ols>li").eq(num1).addClass('selected');
+                            $(".main-in1-d-ols>li").eq(num1).siblings().removeClass('selected');
+                            
+                    },3000)
+                    timer2 = setInterval(function(){
+                        if (cc==0) {
+                            $(".bianhua").attr('src', 'images/music/aanquan.png');
+                            cc=1;
+                        }else{
+                            $(".bianhua").attr('src', 'images/music/anquan.png');
+                            cc=0;
+                        }
+                    },3000)                                      
+                    }
+            $(".main-in1-d-ols li").click(function(event) {
+               /* Act on the event */
+                clearInterval(timer);
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                num = $(this).index();
+                $('#uls').animate({
+                            'margin-left':-620*num+'px'
+                },1000)
+                go();
+            });                                  
+            go();
+            $(".main-in1-sd").mouseenter(function(event) {
+                /* Act on the event */
+                $(this).children('.main-in1-sd-slide').css('top', '0');
+            });
+            $(".main-in1-sd").mouseleave(function(event) {
+                /* Act on the event */
+               $(this).children('.main-in1-sd-slide').css('top', '80px');
+            });
+            $(".main-story-d").mouseenter(function(event) {
+                /* Act on the event */
+                 var arr = $(this).index();
+                 $(this).children('.main-story-d-dm1').css('animation', 'danmu1 3s linear');
+                 $(this).children('.main-story-d-dm2').css('animation', 'danmu2 2s linear');
+                 $(this).children('.main-story-d-dm3').css('animation', 'danmu3 9s linear');
+                 $(this).children('.main-story-d-ltv').css('display', 'block');
+
+               timer1=setInterval(function(){
+                    if(a>10){
+                        clearInterval(timer1);
+                        a=0;
+                    }else{
+                        $(".main-story-d-img").eq(arr).css('background-position', -160*a+'px 0px');
+                        $(".main-story-d-p").eq(arr).css('color', "#2daed9");
+                    }
+                    a++;
+
+               },500)
+            });
+            $(".main-story-d").mouseleave(function(event) {
+                /* Act on the event */
+                clearInterval(timer1);
+                a=0;
+                $(".main-story-d-img").eq($(this).index()).css('background-position', -160*a+'px 0px');
+                $(".main-story-d-p").eq($(this).index()).css('color', "black");
+                $(".main-story-d-ltv").eq($(this).index()).css('display', "none");
+                $('.main-story-d-dm1').css({
+                    "animation": '',
+                    "left": '180px'
+                });
+                $('.main-story-d-dm2').css({
+                    "animation": '',
+                    "left": '240px'
+                });
+                $('.main-story-d-dm3').css({
+                    "animation": '',
+                    "left": '240px'
+                });
+            });
+            $(".mv-left-tab").children(".mv-left-tab-a").eq(0).css('border-bottom', '1px solid #2daed9');
+            $(".mv-right-tab").children(".mv-right-tab-a").eq(0).css('border-bottom', '1px solid #2daed9');
+            $(".mv-left").children('.mv-left-foot').eq(1).css('display', 'none');
+            $(".mv-right").children('.mv-right-foot').eq(1).css('display', 'none');
+            $(".main-all").eq(0).css('display', 'block');
+            $(".mv-right-foot-uls").children('li').mouseenter(function(event) {
+                /* Act on the event */
+                $(this).children('.mv-right-foot-uls-p').children('p').eq(0).css('color', '#2daed9');
+                $(this).children('.mv-right-foot-uls-fl').css('display', 'block');
+            });
+
+            $(".mv-right-foot-uls").children('li').mouseleave(function(event) {
+                /* Act on the event */
+                $(this).children('.mv-right-foot-uls-p').children('p').eq(0).css('color', 'black');
+                $(this).children('.mv-right-foot-uls-fl').css('display', 'none');
+            });
+
+            $(".mv-left-tab-a").click(function(event) {
+                /* Act on the event */
+                var b = $(this).index();
+                $(this).css('border-bottom', '1px solid #2daed9');
+                $(this).siblings('.mv-left-tab-a').css('border-bottom', '');
+                $(".mv-left-foot").eq(b).css('display', 'block');
+                $(".mv-left-foot").eq(b).siblings('.mv-left-foot').css('display', 'none');
+            });
+            $(".mv-right-tab-a").click(function(event) {
+                /* Act on the event */
+                var b = $(this).index();
+                $(this).css('border-bottom', '1px solid #2daed9');
+                $(this).siblings('.mv-right-tab-a').css('border-bottom', '');
+                $(".mv-right-foot").eq(b).css('display', 'block');
+                $(".mv-right-foot").eq(b).siblings('.mv-right-foot').css('display', 'none');
+            });
+            $(".mv-left-mv").mouseenter(function(event) {
+                /* Act on the event */
+                
+                $(this).children('.mv-left-mv-foot').css({
+                    "overflow": 'auto',
+                    "height": '53px',
+                    "color": '#2daed9'
+                });
+                $(this).children('img').css('display', 'block');
+                $(this).children('.mv-left-mv-foot-slide').slideToggle("fast");
+                var arr = $(this).index();
+                var th=$(this);
+                timer1=setInterval(function(){
+                        if(a>10){
+                            clearInterval(timer1);
+                            a=0;
+                        }else{
+                            th.children(".mv-left-mv-vedio").css('background-position', -160*a+'px 0px');
+                        }
+                        a++;
+                },500)
+            });
+            $(".mv-left-mv").mouseleave(function(event){
+                clearInterval(timer1);
+                a=0;
+                $(this).children(".mv-left-mv-vedio").css('background-position', -160*a+'px 0px');
+                $(this).children('.mv-left-mv-foot').css({
+                    "overflow": 'hidden',
+                    "height": '33px',
+                    "color": 'black'
+                });
+                 $(this).children('.mv-left-mv-foot-slide').slideToggle("fast");
+                 $(this).children('img').css('display', 'none');
+            });
+            $(window).scroll(function(event) {
+                /* Act on the event */
+                if ($(this).scrollTop()>200) {
+                    $(".backtotop").css('display', 'block');
+                }
+                else{
+                     $(".backtotop").css('display', 'none');
+                }
+            });
+            $(".backtotop").click(function(event) {
+                /* Act on the event */
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
+            $(".mv-left-fresh").mouseenter(function(event) {
+                /* Act on the event */
+                $(this).children('i').css('transform', 'rotate(180deg)');
+            });
+            $(".mv-left-fresh").mouseleave(function(event) {
+                /* Act on the event */
+                $(this).children('i').css('transform', 'rotate(-180deg)');
+            });
+            $(".mv-left-more").mouseenter(function(event) {
+                /* Act on the event */
+                $(this).children('i').css('margin-left', '3px');
+            });
+            $(".mv-left-more").mouseleave(function(event) {
+                /* Act on the event */
+                $(this).children('i').css('margin-left', '0');
+            });
+             
+        })  
+           
+    </script>
+</body>
+</html>

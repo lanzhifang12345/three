@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="font_shi/iconfont.css">
+    <script src="font_shi/iconfont.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+<!--jq-->
+    <script>
+        $(function(){
+            /**************
+             *
+             *  推广版块
+             *
+             * ************/
+            var mtime;
+            var e=1;
+            function mmove(){
+                mtime=setInterval(function () {
+                    e++;
+                    $('.danmu p').css('left',-e+'px');
+                    $('.danmu p:nth-of-type(2n)').css('left',108-e+'px');
+                    if ((108-e)<-298){
+                        e=1;
+                    }
+                },50);
+            };
+
+            $('.tuiguang-left ul li').mouseenter(function () {
+                    $(this).find('.movepic').css({
+                        'opacity':1
+                    });
+                    mmove();
+                    $(this).find('.movepic .cover').mousemove(function (e) {
+                        console.log(e.clientX-262);
+                        var b =e.clientX-262;
+                        if(b>120){
+                                if ((b-120)%4==0){
+                                    $(this).css('background-position',-b/4*160+'px '+-270+'px');
+                                  /*  $('.progress-bar span').css('width',b/4*4+'%');*/
+                                }
+                        }else if (b>80){
+                            if ((b-80)%4==0){
+                                $(this).css('background-position',-b/4*160+'px '+-180+'px');
+                                $('.progress-bar span').css('width',b/4*3+'%');
+                            }
+                        }else  if (b>40){
+                            if ((b-40)%4==0){
+                                $(this).css('background-position',-b/4*160+'px '+-90+'px');
+                                $('.progress-bar span').css('width',b/4*2+'%');
+                            }
+                        }else if (b>=0 && b<=40){
+                            if (b%4==0){
+                                $(this).css('background-position',-b/4*160+'px 0px');
+                                $('.progress-bar span').css('width',b/4+'%');
+                            }
+                        }else {
+                            $(this).css('background-position','0px 0px');
+                            $('.progress-bar span').css('width',0+'%');
+                        }
+                    });
+            });
+            $('.tuiguang-left ul li').mouseleave(function () {
+                clearInterval(mtime);
+                e=1;
+
+                $(this).find('.movepic').css({
+                    'opacity':0
+                });
+                $('.cover').css('background-position','0px 0px');
+                $('.progress-bar span').css('width',0+'%');
+            });
+
+            var timer;
+            var mnum=0;
+            /*登录*/
+            function danmuMove(){
+                timer=setInterval(function(){
+                    mnum++;
+                    $('.denglu-img>img:nth-of-type(1)').css('left',-mnum+'px');
+                    $('.denglu-img>img:nth-of-type(2)').css('left',320-mnum+'px');
+                    if (mnum>320){
+                        mnum=0;
+                    }
+                },20)
+            };
+            $('.top_rigth ul li:first-child').mouseenter(function () {
+                $('.top_rigth .denglu').css('display','block');
+                danmuMove();
+            });
+            $('.top_rigth ul li:first-child').mouseleave(function () {
+                $('.top_rigth .denglu').css('display','none');
+                clearInterval(timer);
+            });
+
+            $('.denglu').mouseenter(function () {
+                $('.top_rigth .denglu').css('display','block');
+                danmuMove();
+                return false;
+            });
+            $('.denglu').mouseleave(function () {
+                $('.top_rigth .denglu').css('display','none');
+                return false;
+            });
+
+            /*菜单栏选项*/
+            $('.nav-menu-one>li').mouseenter(function () {
+                $(this).find('a>span').addClass('s-xiala');
+            });
+            $('.nav-menu-one>li').mouseleave(function () {
+                $(this).find('a>span').removeClass('s-xiala');
+            });
+            /**************
+             *
+             *  main-one版块
+             *
+             * ************/
+            /*1.图片轮播*/
+            var time1;
+            var nums=0;
+            var numy=0;
+            function move(){
+                time1=setInterval(function () {
+                         nums++;
+                         numy++;
+                        if (nums>5){
+                            nums=0;
+                            $('#lunbo1').css('margin-left', -442*nums+'px');
+                            nums=1;
+                        }
+                        if (numy>4){
+                            numy=0;
+                        }
+                        $('#ol1>li').eq(numy).addClass('current');
+                        $('#ol1>li').eq(numy).siblings().removeClass('current');
+
+                        $('#lunbo1').stop().animate({
+                            'margin-left':-442*nums+'px'
+                        },500);
+                },2000)
+             };
+             move();
+             $('#lunbo1').mouseenter(function () {
+                 clearInterval(time1);
+             });
+             $('#lunbo1').mouseleave(function () {
+                 move();
+             });
+            $('#ol1>li').click(function () {
+                 nums=$(this).index();
+                 numy=$(this).index();
+                $('#ol1>li').eq(numy).addClass('current');
+                $('#ol1>li').eq(numy).siblings().removeClass('current');
+                $('#lunbo1').css('margin-left',-442*nums+'px');
+            });
+
+
+            /*2.左右按钮显隐*/
+            $('.box-one-1').mouseenter(function (e) {
+                $(this).find('.text').css('opacity','1');
+            })
+            $('.box-one-1').mouseleave(function () {
+                $(this).find('.text').css('opacity','0');
+            });
+            /*2.图片背景信息显隐*/
+
+            $('.main-lis-1>li').mouseenter(function () {
+               $(this).find('.beijin').css('top','0');
+               $(this).find('.watch').css('opacity','1');
+               $(this).find('.auther-all').css('opacity','1');
+            });
+            $('.main-lis-1>li').mouseleave(function () {
+                $(this).find('.beijin').css('top','75px');
+                $(this).find('.watch').css('opacity','0');
+                $(this).find('.auther-all').css('opacity','0');
+            });
+
+            var num=0;
+            $('.LR>div').click(function () {
+                num++;
+                var q = $(this).index()+1;
+                $('#one-qh>div').eq(num%3).css('display','block');
+                $('#one-qh>div').eq(num%3).siblings('div').css('display','none');
+            });
+            /**************
+             *
+             *  正在直播版块
+             *
+             * ************/
+            /*1.显隐 鼠标移入移出*/
+            $('.zhibo-picture-lis>li').mouseenter(function () {
+                $(this).find('.img-hide').css({
+                     'opacity': 1,
+                     'z-index': 1
+                });
+
+                $(this).find('.zp-t').css({
+                    'color':'#54a3ec'
+                });
+                $(this).find('.zp-t').stop().animate({
+                    'height':'45px'
+                },200);
+            });
+            $('.zhibo-picture-lis>li').mouseleave(function () {
+                $('.img-hide').css({
+                    'opacity': 0,
+                    'z-index': 0
+                });
+                $('.zp-t').css({
+                    'color':'black'
+                });
+                $('.zp-t').stop().animate({
+                    'height':'23px'
+                },200);
+            });
+
+            /*2.右侧内容切换*/
+            $('.box-lis').css('margin-left',-526+'px')
+            $('#tabID>div').click(function () {
+                $(this).css('border-bottom','2px solid #3ED8EC');
+                $(this).siblings().css('border-bottom','2px solid transparent');
+                var a =$(this).index();
+                $('.box-lis').animate({
+                    'margin-left':-263*a+'px'
+                },400);
+            });
+            /*3.为你推荐板块--轮播图*/
+
+            /**************
+             *
+             *  动画版块
+             *
+             * ************/
+            /*1.点击事件 Tab栏*/
+            $('.donghua-title-l div>p').click(function () {
+               $(this).css('border-bottom','1px solid #54a3ec');
+               $(this).siblings().css('border-bottom','1px solid transparent');
+               var q = $(this).index();
+               $('.donghua-l .qiehuan>div').eq(q).addClass('donghua-picture');
+               $('.donghua-l .qiehuan>div').eq(q).siblings('div').removeClass('donghua-picture');
+            });
+            /*2显隐 鼠标移入移出*/
+            $('.donghua-picture-lis>li').mouseenter(function () {
+                 $(this).find('.color').css('opacity','0.3');
+                 $(this).find('.donghua-pic>span,.watch').css('opacity','1');
+                 $(this).find('.dh-t').css('height','31px')
+             });
+            $('.donghua-picture-lis>li').mouseleave(function () {
+                $(this).find('.color').css('opacity','0');
+                $(this).find('.donghua-pic>span,.watch').css('opacity','0');
+                $(this).find('.dh-t').css('height','19px')
+            });
+
+            /*3.鼠标事件 Tab栏*/
+            $('.duohua-title-tab .duohua-tab-one,.duohua-tab-two').mouseenter(function () {
+                    /*console.log($(this).index());*/
+                    $(this).css('border-bottom','1px solid #54a3ec');
+                    $(this).siblings().removeAttr('style');
+                    var a =$(this).index();
+                    $('.donghua-box-lis').stop().animate({
+                        'margin-left':-263*(a-1)+'px'
+                },400);
+            });
+
+            /*鼠标事件 下拉日期*/
+            $('.duohua-title-tab .duohua-tab-three').mouseenter(function () {
+                $('.duohua-title-tab .riqi').css('display','block');
+            });
+            $('.duohua-title-tab .duohua-tab-three').mouseleave(function () {
+                $('.duohua-title-tab .riqi').css('display','none');
+            });
+
+            /*鼠标移入 弹出悬浮体*/
+            $('.donghua-box-lis .box-one>div').mouseenter(function () {
+                var a =$(this).index();
+                $('#allbox>div').eq(a).css('display','block');
+                $('#allbox>div').eq(a).siblings('div').css('display','none');
+            });
+            $('.donghua-box-lis .box-one>div').mouseleave(function () {
+                $('#allbox>div').css('display','none');
+            });
+            /**************
+             *
+             *  番剧版块
+             *
+             * ************/
+            /*鼠标事件 下拉日期*/
+            $('.fanju-title .fanju-riqi').mouseenter(function () {
+                $('.fanju-title .riqi').css('display','block');
+            });
+            $('.fanju-title .fanju-riqi').mouseleave(function () {
+                $('.fanju-title .riqi').css('display','none');
+            });
+
+
+            /*点击事件 Tab栏*/
+            $('.fanju-title-dongtai div>p').click(function () {
+                $(this).css('border-bottom','1px solid #54a3ec');
+                $(this).siblings().css('border-bottom','1px solid transparent');
+                var q = $(this).index();
+                $('.fanju-l .qiehuan>div').eq(q).addClass('donghua-picture');
+                $('.fanju-l .qiehuan>div').eq(q).siblings('div').removeClass('donghua-picture');
+            });
+
+            /*番剧-轮播*/
+            var fnum=0;
+            function fmove() {
+                timer=setInterval(function () {
+                    fnum++;
+                    if (fnum>3){
+                        fnum=0;
+                    }
+                    $('.f-trig>li').eq(fnum).addClass('on');
+                    $('.f-trig>li').eq(fnum).siblings().removeClass('on');
+                    $('.lunbo .f-pic').stop().animate({
+                        'margin-left':-263*fnum+'px'
+                    },500)
+                },3000)
+            };
+            fmove();
+            $('.lunbo').mouseenter(function () {
+                clearInterval(timer);
+            });
+            $('.lunbo').mouseleave(function () {
+                fmove();
+            });
+            $('.f-trig>li').click(function () {
+                fnum=$(this).index();
+                $('.f-trig>li').eq(fnum).addClass('on');
+                $('.f-trig>li').eq(fnum).siblings().removeClass('on');
+                $('.f-pic').css('margin-left',-263*fnum+'px');
+            });
+            /**************
+             *
+             *  动画版块
+             *
+             * ************/
+            /*点击事件 Tab栏*/
+            $('.t-title div>p').click(function () {
+                $(this).css('border-bottom','1px solid #54a3ec');
+                $(this).siblings().css('border-bottom','1px solid transparent');
+               var q = $(this).index();
+                $('.m-tl .qiehuan>div').eq(q).addClass('t-pic');
+                $('.m-tl .qiehuan>div').eq(q).siblings('div').removeClass('t-pic');
+            });
+        });
+
+    </script>
+    <style>
+        .i-none{
+            position: absolute;
+            top: 56px;
+            left: 113px;
+            display: none;
+            background: url("images/tou头像.jpg");
+        }
+        @keyframes play {
+            0%{
+                transform: translate(0,0);
+            }
+            100%{
+                transform: translate(-1px,-5px);
+            }
+        }
+        .left_li_3:hover>div{
+            animation: play 0.5s forwards;
+            display:block;
+        }
+        .dongtai:hover .icons-dongtai{
+            /*transform: rotate(60deg);
+            animation-iteration-count: 4;*/
+            animation: zhibo-xuanzhuan 0.4s;
+            transition: none;
+        }
+      @keyframes zhibo-xuanzhuan{
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(90deg);
+            }
+              50%{
+                  transform: rotate(180deg);
+              }
+              75%{
+                  transform: rotate(270deg);
+              }
+              100%{
+                  transform: rotate(360deg);
+              }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="header_color">
+            <div class="header_top">
+                <div class="top_left">
+                    <ul>
+                        <li class="left_li_1"><i class="iconfont icon-bilibili bilibi-tv"></i><a href="" title="主站">主站</a></li>
+                        <li class="left_li_2"><a href="javascript:void (0)" title="音频">音频</a></li>
+                        <li class="left_li_3"><a href="javascript:void (0)" title="游戏中心">游戏中心</a>
+                            <div class="i-none" style="width: 400px;height: 250px;" ></div>
+                        </li>
+                        <li class="left_li_4"><a href="" title="直播">直播</a></li>
+                        <li class="left_li_5"><a href="" title="会员购">会员购</a></li>
+                        <li class="left_li_6"><a href="" title="漫画">漫画</a></li>
+                        <li class="left_li_7"><a href="more/ranking-bilibili.html">排行</a></li>
+                        <li class="left_li_8"><a href="">70年</a></li>
+                        <li class="left_li_9"><i class="iconfont icon-shouji bilibi-shouji"></i><a href="">下载APP</a></li>
+                    </ul>
+                </div>
+                <div class="top_rigth">
+                    <ul>
+                        <li><img src="images/tou头像.jpg" alt=""></li>
+                        <li><a href="#">动态</a></li>
+                        <li><a href="#">历史</a></li>
+                    </ul>
+
+                    <div class="denglu">
+                        <p class="denglu-tip">登录后你可以：</p>
+                        <div class="denglu-img">
+                                <img src="images/header/danmu.png" >
+                                <img src="images/header/danmu1.png">
+                        </div>
+                        <a href="more/login-bilibili.html">登录</a>
+                        <p>首次使用？<a href="more/signup-bilibili.html">点我去注册</a></p>
+                    </div>
+                </div>
+
+                <div class="top_rigth_r">
+                    <a href="" >投稿</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="menu">
+        <ul class="nav-menu">
+            <li><i class="iconfont icon-fangzi bilibi-fangzi"></i><p>首页</p></li>
+            <li><span>999+</span><p>动画</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>MAD·AMV</span></a></li>
+                    <li><a href=""><span>MMD·3D</span></a></li>
+                    <li><a href=""><span>短片·手书·配音</span></a></li>
+                    <li><a href=""><span>特摄</span></a></li>
+                    <li><a href=""><span>综合</span></a></li>
+                </ul></li>
+            <li><span>523+</span><p>番剧</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>连载动画</span></a></li>
+                    <li><a href=""><span>完结动画</span></a></li>
+                    <li><a href=""><span>资讯</span></a></li>
+                    <li><a href=""><span>官方延伸</span></a></li>
+                    <li><a href=""><span>新番时间表</span></a></li>
+                    <li><a href=""><span>番剧索引</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>国创</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>国产动画</span></a></li>
+                    <li><a href=""><span>国产原创相关</span></a></li>
+                    <li><a href=""><span>布袋戏</span></a></li>
+                    <li><a href=""><span>动态漫·广播剧</span></a></li>
+                    <li><a href=""><span>资讯</span></a></li>
+                    <li><a href=""><span>新番时间表</span></a></li>
+                    <li><a href=""><span>国产动画索引</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>音乐</p>
+                <ul class="nav-menu-one">
+                    <li><a href="more/music.html"><span>原创音乐</span></a></li>
+                    <li><a href=""><span>翻唱</span></a></li>
+                    <li><a href=""><span>VOCALOID</span></a></li>
+                    <li><a href=""><span>电音</span></a></li>
+                    <li><a href=""><span>演奏</span></a></li>
+                    <li><a href=""><span>MV</span></a></li>
+                    <li><a href=""><span>音乐现场</span></a></li>
+                    <li><a href=""><span>音乐综合</span></a></li>
+                    <li><a href=""><span>音频</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>舞蹈</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>宅舞</span></a></li>
+                    <li><a href=""><span>街舞</span></a></li>
+                    <li><a href=""><span>明星舞蹈</span></a></li>
+                    <li><a href=""><span>中国舞</span></a></li>
+                    <li><a href=""><span>舞蹈综合</span></a></li>
+                    <li><a href=""><span>舞蹈教程</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>游戏</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>单机游戏</span></a></li>
+                    <li><a href=""><span>电子竞技</span></a></li>
+                    <li><a href=""><span>手机游戏</span></a></li>
+                    <li><a href=""><span>网络游戏</span></a></li>
+                    <li><a href=""><span>桌游棋牌</span></a></li>
+                    <li><a href=""><span>音游</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>科技</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>趣味科普人文</span></a></li>
+                    <li><a href=""><span>野生技术协会</span></a></li>
+                    <li><a href=""><span>演讲·公开课</span></a></li>
+                    <li><a href=""><span>星海</span></a></li>
+                    <li><a href=""><span>机械</span></a></li>
+                    <li><a href=""><span>汽车</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>数码</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>手机平板</span></a></li>
+                    <li><a href=""><span>电脑装机</span></a></li>
+                    <li><a href=""><span>摄影摄像</span></a></li>
+                    <li><a href=""><span>影音智能</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>生活</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>搞笑</span></a></li>
+                    <li><a href=""><span>日常</span></a></li>
+                    <li><a href=""><span>美食圈</span></a></li>
+                    <li><a href=""><span>动物圈</span></a></li>
+                    <li><a href=""><span>手工</span></a></li>
+                    <li><a href=""><span>绘画</span></a></li>
+                    <li><a href=""><span>运动</span></a></li>
+                    <li><a href=""><span>其他</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>鬼畜</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>鬼畜调教</span></a></li>
+                    <li><a href=""><span>音MAD</span></a></li>
+                    <li><a href=""><span>人力VOCALOID</span></a></li>
+                    <li><a href=""><span>教程演示</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>时尚</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>美妆</span></a></li>
+                    <li><a href=""><span>服饰</span></a></li>
+                    <li><a href=""><span>健身</span></a></li>
+                    <li><a href=""><span>T台</span></a></li>
+                    <li><a href=""><span>风尚标</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>广告</p></li>
+            <li><span>999+</span><p>娱乐</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>综艺</span></a></li>
+                    <li><a href=""><span>明星</span></a></li>
+                    <li><a href=""><span>Korea相关</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>影视</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>影视杂谈</span></a></li>
+                    <li><a href=""><span>影视剪辑</span></a></li>
+                    <li><a href=""><span>短片</span></a></li>
+                    <li><a href=""><span>预告·资讯</span></a></li>
+                </ul></li>
+            <li><span>999+</span><p>放映厅</p>
+                <ul class="nav-menu-one">
+                    <li><a href=""><span>纪录片</span></a></li>
+                    <li><a href=""><span>电影</span></a></li>
+                    <li><a href=""><span>电视剧</span></a></li>
+                </ul></li>
+            <li class="nav-icon"> <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-zhuanlan"></use>
+                 </svg><p><a href="">专栏</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-fuwuzhinanlubiao  bilibi-fuwuzhinanlubiao "></i>
+                <p><a href="">广场</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-zhibobofangshexiangjiguankanxianxing  bilibi-zhibobofangshexiangjiguankanxianxing "></i>
+                <p><a href="">直播</a></p></li>
+            <li class="nav-icon" >
+                <i class="iconfont icon-tianping  bilibi-tianping "></i>
+                <p><a href="more/ban-bilibili.html">小黑屋</a></p></li>
+            <li class="nav-gif"><img src="images/nav-menu.gif" alt=""></li>
+        </ul>
+    </nav>
+    <!--中部一-->
+    <section class="main">
+        <section class="main-one">
+                <div class="one-left" id="obox">
+                    <ul id="lunbo1">
+                        <li> <img src="images/main-one-l(1).jpg" alt=""></li>
+                        <li> <img src="images/main-one-l(2).jpg" alt=""></li>
+                        <li> <img src="images/main-one-l(3).jpg" alt=""></li>
+                        <li> <img src="images/main-one-l(4).jpg" alt=""></li>
+                        <li> <img src="images/main-one-l(5).jpg" alt=""></li>
+                        <li> <img src="images/main-one-l(1).jpg" alt=""></li>
+                    </ul>
+                    <ol id="ol1">
+                        <li class="current"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                </div>
+                <div class="one-right">
+                    <div class="qiehuan" id="one-qh">
+                        <div class="box-one-1 " style="display: block;">
+                            <ul class="main-lis-1">
+                                <li>
+                                    <a href=""><img src="images/main-one-r(1).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：五月Rambo</p>
+                                        <p>播放：8.4万</p>
+                                    </div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(2).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【夏色祭】深夜里多愁善感的JK</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：夏色祭Official</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(3).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【APH】红色组 大小姐的复仇生涯</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(4).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(5).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(6).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(7).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(8).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                            </ul>
+                            <div class="LR">
+                                <div class="text L"><i class="icons2-jiantou-l"></i><span class="time gai-1">一周</span></div>
+                                <div class="text R"><span class="time gai-2">三日</span><i class="icons2-jiantou-r"></i></div>
+                            </div>
+                        </div>
+                        <div class="box-one-1">
+                            <ul class="main-lis-1">
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(1).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>&nbsp;明日方舟</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：丿蝉亡丿</p>
+                                        <p>播放：11.1万</p>
+                                    </div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(2).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>&nbsp;在你心中，会希望明日方舟</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：卡特亚</p>
+                                        <p>播放：7.0万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(3).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【神楽めあ×湊あくあ】</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：MeA动画制作委员会</p>
+                                        <p>播放：2.0万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(4).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(6).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r1(7).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(7).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r(8).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                            </ul>
+                            <div class="LR">
+                                <div class="text L"><i class="icons2-jiantou-l"></i><span class="time">三日</span></div>
+                                <div class="text R"><span class="time">昨日</span><i class="icons2-jiantou-r"></i></div>
+                            </div>
+                        </div>
+                        <div class="box-one-1 ">
+                            <ul class="main-lis-1">
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(1).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p title="从人气天王到一夜凉凉？这位最火vtuber究竟经历了什么【ACG异闻录46】">从人气天王到一夜凉凉？这位最火vtuber究竟经历了什么【ACG异闻录46】</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：H萌团队</p>
+                                        <p>播放：7.9万</p>
+                                    </div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(2).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p title="平成动画歌曲30分钟耐久串烧！【东京ActiveNEETs】">平成动画歌曲30分钟耐久串烧！【东京ActiveNEETs】</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：夏色祭Official</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(3).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【APH】红色组 大小姐的复仇生涯</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(4).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(5).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(6).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(7).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                                <li>
+                                    <a href=""><img src="images/main-one-r2(8).webp" alt=""></a>
+                                    <div class="beijin">
+                                        <p>【赌怪史诗级rap】慈善disco</p>
+                                    </div>
+                                    <div class="auther-all">
+                                        <p>up主：啊墨吉爱吃辣条</p>
+                                        <p>播放：3.8万</p></div>
+                                    <div class="watch" style="opacity: 0;"></div></li>
+                            </ul>
+                            <div class="LR">
+                                <div class="text L"><i class="icons2-jiantou-l"></i><span class="time gai-1">昨日</span></div>
+                                <div class="text R"><span class="time gai-2">一周</span><i class="icons2-jiantou-r"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!--推广-->
+        <nav class="tuiguang">
+                <div class="tuiguang-left">
+                    <div class="t"> <i class="icons-tuiguang"></i><a> 推广</a> <p>时尚潮人召集令 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 网络举报知识竞赛</p></div>
+                    <div>
+                        <ul>
+                            <li><img src="images/tuiguang-l(1).jpg" alt="">
+                                <div class="movepic">
+                                    <div class="cover" style="background-image: url(images/cover-1.webp); background-size: 1600px;"></div>
+                                    <div class="progress-bar"><span style="width: 0%;"></span></div>
+                                    <div class="danmu">
+                                        <p class="dm" >真的好听啊</p>
+                                        <p class="dm" >好稳啊</p>
+                                        <p class="dm row2" >小姐姐太帅气了！</p>
+                                        <p class="dm row2">怒投硬币，up主厉害</p></div>
+                                </div>
+                                <p title="重塑这个世界的拼图，最后的一块在你手中吗？">重塑这个世界的拼图，最后的一块在你手中吗？</p></li>
+                            <li><img src="images/tuiguang-l(2).jpg" alt="">
+                                <div class="movepic">
+                                    <div class="cover" style="background-image: url(images/cover-2.webp); background-size: 1600px;"></div>
+                                    <div class="progress-bar"><span style="width: 0%;"></span></div>
+                                    <div class="danmu">
+                                        <p class="dm" >这是地坛公园吧</p>
+                                        <p class="dm" >故宫哪这么多树…天坛吧</p>
+                                        <p class="dm row2" >很棒</p>
+                                        <p class="dm row2">才这么点赞？</p></div>
+                                </div>
+                                <p title="千万别教鹦鹉打鼓！UP主根本拦不住它被打的满头包！">千万别教鹦鹉打鼓！UP主根本拦不住它被打的满头包！</p></li>
+                            <li><img src="images/tuiguang-l(3).jpg" alt=""><p title="《未定事件簿》剧情悬念PV首曝！这条路的终点是？">《未定事件簿》剧情悬念PV首曝！这条路的终点是？</p></li>
+                            <li><img src="images/tuiguang-l(4).jpg" alt=""><p title="[装机大赛]在日本捡一台垃圾能跑普通网游需要多少预算？开放式吸尘机主机。">[装机大赛]在日本捡一台垃圾能跑普通网游需要多少预算？开放式吸尘机主机。</p></li>
+                            <li><img src="images/tuiguang-l(5).jpg" alt=""><p title="【热血混剪】山河已无恙，英雄请归家">【热血混剪】山河已无恙，英雄请归家</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tuiguang-right">
+                    <p><a href="">在线人数:3233234</a></p>
+                    <div>
+                        <img src="images/tuiguang-r(1).jpg" alt="">
+                    </div>
+                </div>
+        </nav>
+        <!--中部 正在直播-->
+        <section class="main-two">
+                <div class="guanggao"><img src="images/main-two-g.jpg" alt=""><span></span></div>
+                <div class="zhibo-l">
+                        <div class="zhibo-title-l">
+                            <i class="icons-zhengzaizhibo"></i>
+                            <a href="" class="title-a">正在直播</a>
+                            <p>当前共有<span>6639</span>个在线直播</p>
+                            <i class="icons-huo"></i>
+                            <a href="javascript:void(0)" class="title-a1"><i></i>233秒居然能做这些！</a>
+                            <div class="dongtai">
+                                <span>
+                                    <i class="icons-dongtai"></i>
+                                    <b>136472</b>
+                                    条新动态
+                                </span>
+                            </div>
+                            <a href="javascript:void(0)" class="d-title-a4">更多<i class="icons-gengduo"></i></a>
+                        </div>
+                        <div class="zhibo-picture">
+                            <ul class="zhibo-picture-lis">
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(1).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">丸嘻嘻</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(1-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="保证和封面一样嘤嘤嘤。。。" class="zp-t">保证和封面一样嘤嘤嘤。。。</p>
+                                    <p class="num">娱乐 · 视频唱见</p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(2).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">请多加点颜</span>
+                                                <span class="online"><i></i>102</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(2-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="就只是什么都唱唱。" class="zp-t">就只是什么都唱唱。</p>
+                                    <p class="num">电台 · 唱见电台</p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(3).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">靖菌命</span>
+                                                <span class="online"><i></i>21</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(3-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="高能游戏夜：好恐怖，自闭了" class="zp-t">高能游戏夜：好恐怖，自闭了</p>
+                                    <p class="num">单机 · 主机游戏</p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(5).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">OldBa1</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(5-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="第五人格" class="zp-t">第五人格</p>
+                                    <p class="num">
+                                        手游 · 第五人格
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(6).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">你是小可爱吗</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(6-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="你的脑残小姐姐吗" class="zp-t">你的脑残小姐姐吗</p>
+                                    <p class="num">
+                                        单机 · 无主之地3
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(4).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">想要污 不优雅</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(4-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="保证和封面一样嘤嘤嘤。。。" class="zp-t">保证和封面一样嘤嘤嘤。。。</p>
+                                    <p class="num">娱乐 · 视频唱见</p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(7).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">Suki小七七</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(7-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="【超甜】尝一口我吗" class="zp-t">【超甜】尝一口我吗</p>
+                                    <p class="num">
+                                        电台 · 唱见电台
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(8).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">灬绮罗罗灬</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(8-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="【冰原】二猫才是狩猎的开始！" class="zp-t">【冰原】二猫才是狩猎的开始</p>
+                                    <p class="num">娱乐 · 视频唱见</p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(9).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">丸嘻嘻</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(9-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="乌鸦就是挂件" class="zp-t">乌鸦就是挂件</p>
+                                    <p class="num">
+                                        网游 · lol云顶之弈
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="pic">
+                                        <div class="">
+                                            <img src="images/main-two-zhibo-(10).webp" alt="">
+                                            <div class="zname">
+                                                <span class="auther">灬绮罗罗灬</span>
+                                                <span class="online"><i></i>8011</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-hide"><img src="images/main-two-zhibo-(10-1).webp" alt="" ></div>
+                                    </div>
+                                    <p title="【冰原】二猫才是狩猎的开始！" class="zp-t">【冰原】二猫才是狩猎的！</p>
+                                    <p class="num">
+                                        单机 · 怪物猎人:世界
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                <div class="zhibo-r">
+                    <div class="zhibo-title-tab" id="tabID">
+                        <div class="tab-one"><a href="javascript:void(0)">直播排行</a></div>
+                        <div class="tab-two"><a href="javascript:void(0)">关注的主播</a></div>
+                        <div class="tab-three" style="border-bottom:2px solid #3ED8EC"><a href="javascript:void(0)">为你推荐</a></div>
+                    </div>
+                    <div class="zhibo-title-box">
+                        <div class="box-lis">
+                            <div class="box-one">
+                                <div class="box-num">
+                                    <span class="number">1</span>
+                                    <img src="images/box-one-pic-(1).webp" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">黑桐谷歌</span>
+                                        <span class="r-title"><img src="images/box-live-eye.png" alt=""><em>9.6万</em></span>
+                                        <p>原来这就是聚魔之地啊</p>
+                                    </div>
+                                </div>
+                                <div class="box-num">
+                                    <span class="number">2</span>
+                                    <img src="images/box-one-pic-(2).jpg" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">白上吹雪</span>
+                                        <span class="r-title"><img src="images/box-live-eye.png" alt=""><em>9.6万</em></span>
+                                        <p>测试直播</p>
+                                    </div>
+                                </div>
+                                <div class="box-num">
+                                    <span class="number">3</span>
+                                    <img src="images/box-one-pic-(3).jpg" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">痒局长啊</span>
+                                        <span class="r-title"><img src="images/box-live-eye.png" alt=""><em>9.6万</em></span>
+                                        <p>三更灯火五更鸡,正是男儿直播时</p>
+                                    </div>
+                                </div>
+
+                                <div class="box-num">
+                                    <span class="number-1">4</span>
+                                    <img src="images/box-one-pic-(4).jpg" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">梦醒三额</span>
+                                        <span class="r-title"><img src="images/box-live-eye.png" alt=""><em>9.6万</em></span>
+                                        <p>心态最差赵二狗</p>
+                                    </div>
+                                </div>
+                                <div class="box-num">
+                                    <span class="number-1">5</span>
+                                    <img src="images/box-one-pic-(5).jpg" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">Firelolia</span>
+                                        <span class="r-title"><em>9.6万</em><img src="images/box-live-eye.png" alt=""></span>
+                                        <p>刷我疯狂的刷</p>
+                                    </div>
+                                </div>
+                                <div class="box-num">
+                                    <span class="number-1">6</span>
+                                    <img src="images/box-one-pic-(6).jpg" alt="">
+                                    <div class="r-font">
+                                        <span class="l-title">渗透之C</span>
+                                        <span class="r-title"><img src="images/box-live-eye.png" alt=""><em>9.6万</em></span>
+                                        <p>渗透之C君</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-two">
+                                <div class="empty">
+                                    <i class="empty-icon"></i>
+                                   <span>没有数据(-_-#)</span>
+                                </div>
+                            </div>
+                            <div class="box-three">
+                                <ul class="box-three-pic" >
+                                    <li><img src="images/zhibo-title-box-(1).webp" alt=""></li>
+                                    <li><img src="images/zhibo-title-box-(2).webp" alt=""></li>
+                                    <li><img src="images/zhibo-title-box-(3).webp" alt=""></li>
+                                </ul>
+                                <div class="box-three-bottom">
+                                    <div class="bottom-wh"><img src="images/zhibo-title-box-wh.png" alt=""></div>
+                                    <div class="bottom-sp"><img src="images/zhibo-title-box-sp.png" alt=""></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+        <!--中部 动画-->
+        <section class="main-three">
+            <div class="donghua-l">
+                <div class="donghua-title-l">
+                    <i class="icons-donghua"></i>
+                    <a href="javascript:void(0)" class="d-title-a1">动画</a>
+                    <div>
+                        <p class="d-title-p1"> <a href="javascript:void(0)" >有新动态</a></p>
+                        <p class="d-title-p2" ><a href="javascript:void(0)" >最新投稿</a></p>
+                    </div>
+                    <div class="dongtai">
+                                <span>
+                                    <i class="icons-dongtai"></i>
+                                    <b>136472</b>
+                                    条新动态
+                                </span>
+                    </div>
+                    <a href="javascript:void(0)" class="d-title-a4">更多<i class="icons-gengduo"></i></i></a>
+                </div>
+                <div class="qiehuan">
+                    <div>
+                        <ul class="donghua-picture-lis">
+                            <li>
+                                <div class="donghua-pic" >
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(1).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="想象游戏" class="dh-t">想象游戏</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(2).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="什么是比死亡还恐怖的事情？" class="dh-t">什么是比死亡还恐怖的事情？</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(3).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【南方公园 · 中字】第二十三季第一集预告片" class="dh-t">【南方公园 · 中字】第二十三季第一集预告片</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(4).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="章鱼哥被邪教逼疯！海绵宝宝中细思极恐的一集【文盲文】" class="dh-t">【文盲文】章鱼哥被邪教逼疯！海绵宝宝中细思极恐的一集</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(5).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="被帕里(paryi)用锤子断手的mea" class="dh-t">被帕里(paryi)用锤子断手的mea</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(6).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="剑网3《拾心·拾忆》，可以单曲循环了" class="dh-t">剑网3《拾心·拾忆》，可以单曲循环了</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(7).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="前方高能！让人百看不厌的动 画名场景" class="dh-t">前方高能！让人百看不厌的动 画名场景</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(8).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【弱音美如画】~~中文版极乐净土~~" class="dh-t">【弱音美如画】~~中文版极乐净土~~</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(9).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【避难所】电脑4K壁纸分享！">【避难所】电脑4K壁纸分享！</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(10).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="妹控的崛起" class="dh-t">妹控的崛起</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="donghua-picture">
+                        <ul class="donghua-picture-lis">
+                            <li>
+                                <div class="donghua-pic" >
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(1).webp" alt="" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【手绘op】某爆肝还原的鬼灭之刃op" class="dh-t">【手绘op】某爆肝还原的鬼灭之刃op</p>
+                                <p class="num">
+                                    <span class="play"><i></i>61.5万</span>
+                                    <span class="pnum"><i></i>2160</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(2).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【互动视频】被病娇少女监禁，你的决定将影响…" class="dh-t">【互动视频】被病娇少女监禁，你的决定将影响…</p>
+                                <p class="num">
+                                    <span class="play"><i></i>11.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-2(3).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="［误解/沙雕］尝试用恋爱剧画风打开零一［ZERO ONE］" class="dh-t">［误解/沙雕］尝试用恋爱剧画风打开零一［ZERO ONE］</p>
+                                <p class="num">
+                                    <span class="play"><i></i>11.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(4).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【文盲文】章鱼哥被邪教逼疯！海绵宝宝中细思极恐的一集" class="dh-t">【文盲文】章鱼哥被邪教逼疯！海绵宝宝中细思极恐的一集</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(5).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【明日方舟/手书】Something just like this【莱茵生命】" class="dh-t">【明日方舟/手书】Something just like this【莱茵生命】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(6).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="魔兽主播直播黑装备？原神获新作奖提名，大圣归来抱得大赏！【ACG大事件】" class="dh-t">魔兽主播直播黑装备？原神获新作奖提名，大圣归来抱得大赏！【ACG大事件】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(7).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【快新】恋爱裁判" class="dh-t">【快新】恋爱裁判</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(8).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【文豪野犬】森先生的千层套路" class="dh-t">【文豪野犬】森先生的千层套路</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(9).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="「小忍」若汝后日死去 吾就活到大后日 骄傲的向别人诉说吾主的故事" class="dh-t">「小忍」若汝后日死去 吾就活到大后日 骄傲的向别人诉说吾主的故事</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/main-three-donghua-(10).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【名侦探柯南】日本装蒜王服部平次（工藤谐音合集及其他）" class="dh-t">【名侦探柯南】日本装蒜王服部平次（工藤谐音合集及其他）</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="donghua-r">
+                <div class="duohua-title-tab">
+                    <h4>排行</h4>
+                    <div class="duohua-tab-one" style="border-bottom:1px solid #54a3ec"><a href="javascript:void(0)">全部</a></div>
+                    <div class="duohua-tab-two"><a href="javascript:void(0)">原创</a></div>
+                    <div class="duohua-tab-three">
+                        <span class="selected">三日</span>
+                        <i class="icons-riqi"></i>
+                        <div class="riqi">一周</div>
+                    </div>
+                </div>
+                <div class="donghua-title-box">
+                    <div class="donghua-box-lis">
+                        <div class="box-one">
+                            <div class="box-num">
+                                <span class="number">1</span>
+                                <img src="images/main-three-paihan-(1).webp" alt="">
+                                <div class="r-font">
+                                    <p><a title="为什么要去ACG化？网红经济为何能击败内容市场成为时代新宠【网络视频发展史02】 播放:247824 32:46">为什么要去ACG化？网红经济为何能击败内容市</a></p>
+                                    <p class="last-p">综合评分：142.4万</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">2</span>
+                                <div class="r-font-1">
+                                    <p><a title="十月番必看TOP5，快来看看都是哪几部！ 播放:317227 6:36">十月番必看TOP5，快来看看都是哪几部！</a></p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">3</span>
+                                <div class="r-font-1">
+                                    <p title="沃兹：说好不哭，但没说好不变身！">沃兹：说好不哭，但没说好不变身！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">4</span>
+                                <div class="r-font-1">
+                                    <p title="你能推倒女主选出正确结局吗？【万字互动视频】">你能推倒女主选出正确结局吗？【万字互动视频】</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">5</span>
+                                <div class="r-font-1">
+                                    <p title="西片！开大招！太太完败！西片终于赢了！">西片！开大招！太太完败！西片终于赢了！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">6</span>
+                                <div class="r-font-1">
+                                    <p title="就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶">就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">7</span>
+                                <div class="r-font-1">
+                                    <p>【B限剪辑】我看到了哦！你们在DD！</p>
+                                </div>
+                            </div>
+                            <a href="">查看更多<i></i></a>
+                        </div>
+                        <div class="box-one">
+                            <div class="box-num">
+                                <span class="number">1</span>
+                                <img src="images/main-two-zhibo-paihan-(2).webp" alt="">
+                                <div class="r-font">
+                                    <p><a title="为什么要去ACG化？网红经济为何能击败内容市场成为时代新宠【网络视频发展史02】 播放:247824 32:46">为什么要去ACG化？网红经济为何能击败内容市</a></p>
+                                    <p class="last-p">综合评分：142.4万</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">2</span>
+                                <div class="r-font-1">
+                                    <p><a title="十月番必看TOP5，快来看看都是哪几部！ 播放:317227 6:36">十月番必看TOP5，快来看看都是哪几部！</a></p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">3</span>
+                                <div class="r-font-1">
+                                    <p title="沃兹：说好不哭，但没说好不变身！">沃兹：说好不哭，但没说好不变身！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">4</span>
+                                <div class="r-font-1">
+                                    <p title="你能推倒女主选出正确结局吗？【万字互动视频】">你能推倒女主选出正确结局吗？【万字互动视频】</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">5</span>
+                                <div class="r-font-1">
+                                    <p title="西片！开大招！太太完败！西片终于赢了！">西片！开大招！太太完败！西片终于赢了！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">6</span>
+                                <div class="r-font-1">
+                                    <p title="就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶">就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">7</span>
+                                <div class="r-font-1">
+                                    <p>【B限剪辑】我看到了哦！你们在DD！</p>
+                                </div>
+                            </div>
+                            <a href="">查看更多<i></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="allbox">
+                    <div class="box-xuanfu num-1 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">为什么要去ACG化？网红经济为何能击败内容市场成为时代新宠</p>
+                            <div class="love">
+                                <span class="s">低调的帅哥</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(1).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">上篇: av54592589 番外: av61817746 参考资料
+                                        [1]布莱恩·克雷默. 分享时代：如何缔造影响力[M]. 北京：中信出版社，2016.
+                                        [2]杰夫·贾维斯. 分享经济时代：新经济时代[M]. 北京：中华工商联合出版社，2016. </p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                    <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                    <li><i class="icons-2"></i> <span>6592</span></li>
+                                    <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                    <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-2 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">十月番必看TOP5，快来看看都是哪几部！</p>
+                            <div class="love">
+                                <span class="s">瓶子君啊啊</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(2).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">点个关注再走吧点个关注再走吧点个关注再走吧
+                                        点个关注再走吧点个关注再走吧点个关注再走吧
+                                        点个关注再走吧点个关注再走吧点个关注再走吧
+                                        点个关注再走吧点个关注再走吧点个关注再走吧</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>51.1万</span></li>
+                                <li><i class="icons-2"></i> <span>7832</span></li>
+                                <li><i class="icons-3"></i> <span>32.9万</span></li>
+                                <li><i class="icons-4"></i> <span>9.61万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-3 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">沃兹：说好不哭，但没说好不变身！</p>
+                            <div class="love">
+                                <span class="s">本能觉醒拉</span>
+                                <span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(3).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">周杰伦新歌MV男主——假面骑士沃兹
+                                        庆贺吧！性感沃兹，在线卖单曲！
+                                        感兴趣的话请一键三连支持一下阿婆主，拜托了Orz！</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                <li><i class="icons-2"></i> <span>6592</span></li>
+                                <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-4 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">你能推倒女主选出正确结局吗？【万字互动视频】</p>
+                            <div class="love">
+                                <span class="s">木糖纯木纯</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(4).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">看顶置评论吧~</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                <li><i class="icons-2"></i> <span>6592</span></li>
+                                <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-5 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">西片！开大招！太太完败！西片终于赢了！</p>
+                            <div class="love">
+                                <span class="s">ArsenalAsl</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(5).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">西片终于赢了一次~把太太激动得差点就以身相许了
+                                        “这个给你、这个也给你、这些都给你了”</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                <li><i class="icons-2"></i> <span>6592</span></li>
+                                <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-6 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶</p>
+                            <div class="love">
+                                <span class="s">小达仍在呀</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(6).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">不，说明你们都是色鬼(・ω・)</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                <li><i class="icons-2"></i> <span>6592</span></li>
+                                <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-xuanfu num-7 color-1">
+                        <div class="num-box-1">
+                            <p class="ri-title">【B限剪辑】我看到了哦！你们在DD！</p>
+                            <div class="love">
+                                <span class="s">好棒好棒噢</span><i></i><span>2019-09-15 12:23</span>
+                            </div>
+                            <hr size="1px" style="background:rgb(209,213,220)"/>
+                            <div class="love-main">
+                                <img src="images/main-three-paihan-(7).webp" alt="">
+                                <div class="r-font">
+                                    <p class="title-love">“男人都喜欢男人的。” ——鲁迅</p>
+                                </div>
+                            </div>
+                            <hr size="1px" style="background:#ebeff3"/>
+                            <ul>
+                                <li><i class="icons-1"></i> <span>37.1万</span></li>
+                                <li><i class="icons-2"></i> <span>6592</span></li>
+                                <li><i class="icons-3"></i> <span>3.9万</span></li>
+                                <li><i class="icons-4"></i> <span>7.6万</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--中部 番剧-->
+        <section class="main-four">
+            <div class="guanggao"><img src="images/main-four-guangao.jpg" alt=""><span></span></div>
+            <div class="fanju-l">
+                <div class="fanju-title-l">
+                    <i class="icons-fanju"></i>
+                    <a href="" class="title-a">番剧</a>
+                    <ul class="fanju-tab">
+                        <li><a href="">最新</a></li>
+                        <li><a href="">一</a></li>
+                        <li><a href="">二</a></li>
+                        <li><a href="">三</a></li>
+                        <li><a href="">四</a></li>
+                        <li><a href="">五</a></li>
+                        <li><a href="">日</a></li>
+                    </ul>
+                   <a href="" class="fanju-title">新番时间表 <i class="icons-fanju-time"></i></a>
+                </div>
+                <div class="fanju-main">
+                    <div class="fanju-box">
+                        <ul>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(1).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="暗芝居 第七季">暗芝居 第七季</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(2).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="BEM">BEM</a><p><a
+                                        href="">第9话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(3).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="冰海战记">冰海战记</a><p><a
+                                        href="">第11话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(4).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="擅长捉弄的高木同学 第二季">擅长捉弄的高木同学 第二季</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(5).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="偶像梦幻祭">偶像梦幻祭</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(6).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="实况主的逃脱游戏">实况主的逃脱游戏</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(7).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="實況主的逃脫遊戲【直播中】（僅限台灣地區）">實況主的逃脫遊戲【直播中】（僅限台灣地區）</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(8).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="偶像夢幻祭（僅限台灣地區）">偶像夢幻祭（僅限台灣地區）</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(9).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="博人传 火影忍者新时代">博人传 火影忍者新时代</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(10).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="美妙☆频道">美妙☆频道</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(11).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="爱玩怪兽">爱玩怪兽</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(12).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="君主·埃尔梅罗二世事件簿 魔眼收集列车 Grace note">君主·埃尔梅罗二世事件簿 魔眼收集列车 Grace note</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(13).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="艾梅洛閣下 II 世事件簿 -魔眼蒐集列車 Grace note-（僅限台灣地區）">艾梅洛閣下 II 世事件簿 -魔眼蒐集列車 Grace note-（僅限台灣地區）</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(14).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="鬼灭之刃">鬼灭之刃</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(15).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="鬼滅之刃（僅限台灣地區）">鬼滅之刃（僅限台灣地區）</a><p><a
+                                        href="">第12话</a></p></div></li>
+                            <li><div class="l-img"><img src="images/fanju-box/main-four-box-(16).webp" alt=""></div>
+                                <div class="r-box"><a href="javascript:void(0)" title="暖暖日记 4th">暖暖日记 4th</a><p><a
+                                        href="">第12话</a></p></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="fanju-title-dongtai">
+                    <a href="javascript:void(0)" class="d-title-a1">番剧动态</a>
+                    <div>
+                        <p class="d-title-p1"> <a href="javascript:void(0)" >有新动态</a></p>
+                        <p class="d-title-p2" ><a href="javascript:void(0)" >最新投稿</a></p>
+                    </div>
+                    <div class="dongtai">
+                     <span>
+                      <i class="icons-dongtai"></i>
+                       <b>136472</b>条新动态
+                       </span>
+                    </div>
+                    <a href="javascript:void(0)" class="d-title-a4">更多<i class="icons-gengduo"></i></i></a>
+                </div>
+                <div class="qiehuan">
+                    <div >
+                        <ul class="donghua-picture-lis">
+                            <li>
+                                <div class="donghua-pic" >
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(1).webp" alt="【4月】我们无法一起学习 01【独家正版】" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【4月】我们无法一起学习 01【独家正版】" class="dh-t">【4月】我们无法一起学习 01【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>820万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(2).webp" alt="【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】" class="dh-t">【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(3).webp" alt="【7月】重来吧，魔王大人！ 04【独家正版】">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】重来吧，魔王大人！ 04【独家正版】" class="dh-t">【7月】重来吧，魔王大人！ 04【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(4).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="[字幕] 被高木美佑爆料使喚妹妹的美海女王 A&G NEXT BREAKS 田中美海的FIVE STARS #232 After Talk 節選" class="dh-t">[字幕] 被高木美佑爆料使喚妹妹的美海女王 A&G NEXT BREAKS 田中美海的FIVE STARS #232 After Talk 節選</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(5).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】实况主的逃脱游戏 11" class="dh-t">【7月】实况主的逃脱游戏 11</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(6).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】实况主的逃脱游戏 01" class="dh-t">【7月】实况主的逃脱游戏 01</p>
+                                <p class="num">
+                                    <span class="play"><i></i>465万</span>
+                                    <span class="pnum"><i></i>7.5</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(7).webp" alt="">
+                                    <span>21:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【4月】CAROLE & TUESDAY 16【独家正版】" class="dh-t">【4月】CAROLE & TUESDAY 16【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>108.5万</span>
+                                    <span class="pnum"><i></i>6.5万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(8).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】在地下城寻求邂逅是否搞错了什么 第二季 11" class="dh-t">【7月】在地下城寻求邂逅是否搞错了什么 第二季 11</p>
+                                <p class="num">
+                                    <span class="play"><i></i>11.5万</span>
+                                    <span class="pnum"><i></i>60万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(9).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="鬼头明里先辈的营业" class="dh-t">鬼头明里先辈的营业</p>
+                                <p class="num">
+                                    <span class="play"><i></i>111.5万</span>
+                                    <span class="pnum"><i></i>6.1万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-2(10).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【自制字幕】关于松冈祯丞不善于应对女性的二三事 刀剑神域十周年特别节目节选" class="dh-t">【自制字幕】关于松冈祯丞不善于应对女性的二三事 刀剑神域十周年特别节目节选</p>
+                                <p class="num">
+                                    <span class="play"><i></i>112.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="donghua-picture">
+                        <ul class="donghua-picture-lis">
+                            <li>
+                                <div class="donghua-pic" >
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(1).webp" alt="【4月】我们无法一起学习 01【独家正版】" >
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【4月】我们无法一起学习 01【独家正版】" class="dh-t">【4月】我们无法一起学习 01【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>820万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(2).webp" alt="【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】" class="dh-t">【剧场版】境界的彼方 -I'LL BE HERE-  未来篇【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(3).webp" alt="【7月】重来吧，魔王大人！ 04【独家正版】">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】重来吧，魔王大人！ 04【独家正版】" class="dh-t">【7月】重来吧，魔王大人！ 04【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(4).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="[字幕] 被高木美佑爆料使喚妹妹的美海女王 A&G NEXT BREAKS 田中美海的FIVE STARS #232 After Talk 節選" class="dh-t">[字幕] 被高木美佑爆料使喚妹妹的美海女王 A&G NEXT BREAKS 田中美海的FIVE STARS #232 After Talk 節選</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(5).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】实况主的逃脱游戏 11" class="dh-t">【7月】实况主的逃脱游戏 11</p>
+                                <p class="num">
+                                    <span class="play"><i></i>1.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(6).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】实况主的逃脱游戏 01" class="dh-t">【7月】实况主的逃脱游戏 01</p>
+                                <p class="num">
+                                    <span class="play"><i></i>465万</span>
+                                    <span class="pnum"><i></i>7.5</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(7).webp" alt="">
+                                    <span>21:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【4月】CAROLE & TUESDAY 16【独家正版】" class="dh-t">【4月】CAROLE & TUESDAY 16【独家正版】</p>
+                                <p class="num">
+                                    <span class="play"><i></i>108.5万</span>
+                                    <span class="pnum"><i></i>6.5万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(8).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【7月】在地下城寻求邂逅是否搞错了什么 第二季 11" class="dh-t">【7月】在地下城寻求邂逅是否搞错了什么 第二季 11</p>
+                                <p class="num">
+                                    <span class="play"><i></i>11.5万</span>
+                                    <span class="pnum"><i></i>60万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(9).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="鬼头明里先辈的营业" class="dh-t">鬼头明里先辈的营业</p>
+                                <p class="num">
+                                    <span class="play"><i></i>111.5万</span>
+                                    <span class="pnum"><i></i>6.1万</span>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="donghua-pic">
+                                    <div class="color"></div>
+                                    <img src="images/fanju-box-dongtai/fanju-box-dongtai-(10).webp" alt="">
+                                    <span>2:34</span>
+                                    <div class="watch"></div>
+                                </div>
+                                <p title="【自制字幕】关于松冈祯丞不善于应对女性的二三事 刀剑神域十周年特别节目节选" class="dh-t">【自制字幕】关于松冈祯丞不善于应对女性的二三事 刀剑神域十周年特别节目节选</p>
+                                <p class="num">
+                                    <span class="play"><i></i>112.5万</span>
+                                    <span class="pnum"><i></i>60</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fanju-r">
+                <div class="fanju-title">
+                    <h4>排行</h4>
+                    <div class="fanju-riqi">
+                        <span class="selected">三日</span>
+                        <i class="icons-riqi"></i>
+                        <div class="riqi">一周</div>
+                    </div>
+                </div>
+                <div class="fanju-title-box">
+                    <div class="fanju-box-lis">
+                        <div class="box-one">
+                            <div class="box-num-1">
+                                <span class="number">1</span>
+                                <div class="r-font-1">
+                                    <p><a title="鬼灭之刃 播放:221138721">鬼灭之刃</a></p>
+                                    <span>更新至第25话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">2</span>
+                                <div class="r-font-1">
+                                    <p><a title="擅长捉弄的高木同学 第二季 播放:28251625">擅长捉弄的高木同学 第二季</a></p>
+                                    <span>全12话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">3</span>
+                                <div class="r-font-1">
+                                    <p title="女高中生的虚度日常 播放:34042201">女高中生的虚度日常</p>
+                                    <span>全12话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">4</span>
+                                <div class="r-font-1">
+                                    <p title="Ｄｒ．ＳＴＯＮＥ 石纪元 播放:32938955">Ｄｒ．ＳＴＯＮＥ 石纪元</p>
+                                    <span>更新至第12话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">5</span>
+                                <div class="r-font-1">
+                                    <p title="君主·埃尔梅罗二世事件簿 魔眼收集列车 Grace note 播放:29967467">君主·埃尔梅罗二世事件簿 魔眼收集列车 Grace note</p>
+                                    <span>更新至第12话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">6</span>
+                                <div class="r-font-1">
+                                    <p title="在地下城寻求邂逅是否搞错了什么 第二季 播放:24344958">在地下城寻求邂逅是否搞错了什么 第二季</p>
+                                    <span>更新至第11话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">7</span>
+                                <div class="r-font-1">
+                                    <p title="某科学的一方通行 播放:37768673">某科学的一方通行</p>
+                                    <span>更新至第11话</span>
+                                </div>
+                            </div>
+
+                            <div class="box-num-1">
+                                <span class="number-1">8</span>
+                                <div class="r-font-1">
+                                    <p title="炎炎消防队 播放:23761515">炎炎消防队</p>
+                                    <span>更新至第11话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">9</span>
+                                <div class="r-font-1">
+                                    <p title="街角魔族 播放:15750658">街角魔族</p>
+                                    <span>更新至第11话</span>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">10</span>
+                                <div class="r-font-1">
+                                    <p title="重来吧，魔王大人！ 播放:37970649">重来吧，魔王大人！</p>
+                                    <span>全12话</span>
+                                </div>
+                            </div>
+                            <a href="">查看更多<i></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fanju-title-two">
+                    <h4>特别推荐</h4>
+                    <div class="lunbo">
+                        <ul class="f-pic">
+                            <li><img src="images/fanju-box/fanju-box-lunbo-(1).webp" alt=""></li>
+                            <li><img src="images/fanju-box/fanju-box-lunbo-(2).webp" alt=""></li>
+                            <li><img src="images/fanju-box/fanju-box-lunbo-(3).webp" alt=""></li>
+                            <li><img src="images/fanju-box/fanju-box-lunbo-(4).webp" alt=""></li>
+                        </ul>
+                        <ul class="f-trig">
+                            <li class="on"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li></ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--中部 国创-->
+       <!-- <section class="main-five">
+
+        </section>-->
+        <!--中部 动漫-->
+        <section class="main-six">
+            <div class="guanggao"><img src="images/main-six-guangao.jpg" alt=""><span></span></div>
+            <div class="m-tl">
+                <div class="t-title">
+                    <i class="icons-dongman"></i>
+                    <a href="javascript:void(0)" class="t-a1">动画</a>
+                    <div>
+                        <p class="t-p1"> <a href="javascript:void(0)" >有新动态</a></p>
+                        <p class="t-p2" ><a href="javascript:void(0)" >最新投稿</a></p>
+                    </div>
+                    <a href="javascript:void(0)" class="t-a2">更多<i class="icons-gengduo"></i></i></a>
+                    <div class="dongtai">
+                     <span>
+                      <i class="icons-dongtai"></i>
+                       <b>136472</b>条新动态
+                       </span>
+                    </div>
+                </div>
+                <div class="qiehuan">
+                    <div>
+                        <ul>
+                            <li><div class="t-img"><img src="images/main-six-2(1).webp" alt=""></div>
+                                <p title="绝世武神" class="t-p">绝世武神</p><p class="label">热血 冒险</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(2).webp" alt=""></div>
+                                <p title="我才不会被女孩子欺负呢" class="t-p">我才不会被女孩子欺负呢</p><p class="label">热血 校园 科幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(3).webp" alt=""></div>
+                                <p title="修真四万年" class="t-p">修真四万年</p><p class="label">热血 冒险 奇幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(4).webp" alt=""></div>
+                                <p title="斗罗大陆" class="t-p">斗罗大陆</p><p class="label">热血 冒险 玄幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(5).webp" alt=""></div>
+                                <p title="灵剑尊" class="t-p">灵剑尊</p><p class="label">热血 冒险 奇幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(6).webp" alt=""></div>
+                                <p title="大叔诡电台" class="t-p">大叔诡电台</p><p class="label">悬疑 科幻 都市</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(7).webp" alt=""></div>
+                                <p title="武神主宰" class="t-p">武神主宰</p><p class="label">热血 冒险</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(8).webp" alt=""></div>
+                                <p title="女子学院的男生" class="t-p">女子学院的男生</p><p class="label">搞笑 校园 后宫</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(9).webp" alt=""></div>
+                                <p title="猎兽神兵（致曾为神之众兽）" class="t-p">猎兽神兵（致曾为神之众兽）</p><p class="label">冒险 奇幻 热血</p></li>
+                            <li><div class="t-img"><img src="images/main-six-2(10).webp" alt=""></div>
+                                <p title="明日酱的水手服" class="t-p">明日酱的水手服</p><p class="label">校园 治愈</p></li>
+                        </ul>
+                    </div>
+                    <div class="t-pic">
+                        <ul>
+                            <li><div class="t-img"><img src="images/main-six-(1).webp" alt=""></div>
+                                <p title="刀剑神域 进击篇" class="t-p">刀剑神域 进击篇</p><p class="label">科幻 冒险 热血</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(2).webp" alt=""></div>
+                                <p title="某科学的超电磁炮" class="t-p">某科学的超电磁炮</p><p class="label">热血 校园 科幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(3).webp" alt=""></div>
+                                <p title="某科学的一方通行" class="t-p">某科学的一方通行</p><p class="label">热血 科幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(4).webp" alt=""></div>
+                                <p title="BEASTARS" class="t-p">某BEASTARS</p><p class="label">校园</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(5).webp" alt=""></div>
+                                <p title="崩坏3rd" class="t-p">崩坏3rd</p><p class="label">热血 冒险 奇幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(6).webp" alt=""></div>
+                                <p title="灵能百分百" class="t-p">灵能百分百</p><p class="label">热血 搞笑</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(7).webp" alt=""></div>
+                                <p title="你遭难了吗？" class="t-p">你遭难了吗？</p><p class="label">搞笑 冒险</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(8).webp" alt=""></div>
+                                <p title="刀剑神域 Alicization篇" class="t-p">刀剑神域 Alicization篇</p><p class="label">冒险 热血 科幻</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(9).webp" alt=""></div>
+                                <p title="LILY" class="t-p">LILY</p><p class="label">日常 治愈 百合 校园</p></li>
+                            <li><div class="t-img"><img src="images/main-six-(10).webp" alt=""></div>
+                                <p title="鲲吞天下" class="t-p">鲲吞天下</p><p class="label">玄幻 热血 搞笑 冒险</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="m-tr">
+                <div class="duohua-title-tab">
+                    <h4>排行</h4>
+                    <div class="duohua-tab-one" style="border-bottom:1px solid #54a3ec"><a href="javascript:void(0)">全部</a></div>
+                    <div class="duohua-tab-two"><a href="javascript:void(0)">原创</a></div>
+                    <div class="duohua-tab-three">
+                        <span class="selected">三日</span>
+                        <i class="icons-riqi"></i>
+                        <div class="riqi">一周</div>
+                    </div>
+                </div>
+                <div class="donghua-title-box">
+                    <div class="donghua-box-lis">
+                        <div class="box-one">
+                            <div class="box-num">
+                                <span class="number">1</span>
+                                <img src="images/main-three-paihan-(1).webp" alt="">
+                                <div class="r-font">
+                                    <p><a title="为什么要去ACG化？网红经济为何能击败内容市场成为时代新宠【网络视频发展史02】 播放:247824 32:46">为什么要去ACG化？网红经济为何能击败内容市</a></p>
+                                    <p class="last-p">综合评分：142.4万</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">2</span>
+                                <div class="r-font-1">
+                                    <p><a title="十月番必看TOP5，快来看看都是哪几部！ 播放:317227 6:36">十月番必看TOP5，快来看看都是哪几部！</a></p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">3</span>
+                                <div class="r-font-1">
+                                    <p title="沃兹：说好不哭，但没说好不变身！">沃兹：说好不哭，但没说好不变身！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">4</span>
+                                <div class="r-font-1">
+                                    <p title="你能推倒女主选出正确结局吗？【万字互动视频】">你能推倒女主选出正确结局吗？【万字互动视频】</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">5</span>
+                                <div class="r-font-1">
+                                    <p title="西片！开大招！太太完败！西片终于赢了！">西片！开大招！太太完败！西片终于赢了！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">6</span>
+                                <div class="r-font-1">
+                                    <p title="就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶">就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">7</span>
+                                <div class="r-font-1">
+                                    <p>【B限剪辑】我看到了哦！你们在DD！</p>
+                                </div>
+                            </div>
+                            <a href="">查看更多<i></i></a>
+                        </div>
+                        <div class="box-one">
+                            <div class="box-num">
+                                <span class="number">1</span>
+                                <img src="images/main-three-donghua-paihan.webp" alt="">
+                                <div class="r-font">
+                                    <p><a title="为什么要去ACG化？网红经济为何能击败内容市场成为时代新宠【网络视频发展史02】 播放:247824 32:46">为什么要去ACG化？网红经济为何能击败内容市</a></p>
+                                    <p class="last-p">综合评分：142.4万</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">2</span>
+                                <div class="r-font-1">
+                                    <p><a title="十月番必看TOP5，快来看看都是哪几部！ 播放:317227 6:36">十月番必看TOP5，快来看看都是哪几部！</a></p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number">3</span>
+                                <div class="r-font-1">
+                                    <p title="沃兹：说好不哭，但没说好不变身！">沃兹：说好不哭，但没说好不变身！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">4</span>
+                                <div class="r-font-1">
+                                    <p title="你能推倒女主选出正确结局吗？【万字互动视频】">你能推倒女主选出正确结局吗？【万字互动视频】</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">5</span>
+                                <div class="r-font-1">
+                                    <p title="西片！开大招！太太完败！西片终于赢了！">西片！开大招！太太完败！西片终于赢了！</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">6</span>
+                                <div class="r-font-1">
+                                    <p title="就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶">就算是变态姐姐你也喜欢吗？趁你不在居然翻你的垃圾桶</p>
+                                </div>
+                            </div>
+                            <div class="box-num-1">
+                                <span class="number-1">7</span>
+                                <div class="r-font-1">
+                                    <p>【B限剪辑】我看到了哦！你们在DD！</p>
+                                </div>
+                            </div>
+                            <a href="">查看更多<i></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer class="about">
+        <div class="footer-main">
+            <div class="f-one">
+                <p>bilibili</p>
+                <ul>
+                    <li><a href="">关于我们</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">加入我们</a></li>
+                    <li><a href="">友情链接</a></li>
+                    <li><a href="">bilibili认证</a></li>
+                    <li><a href="">Investor Relations</a></li>
+                </ul>
+            </div>
+            <div class="f-two">
+                <p>传送门</p>
+                <ul>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">高级弹幕</a></li>
+                    <li><a href="">活动专题页</a></li>
+                    <li><a href="">侵权申诉</a></li>
+                    <li><a href="">活动中心</a></li>
+                    <li><a href="">用户回馈论坛</a></li>
+                    <li><a href="">壁纸站</a></li>
+                    <li><a href="">专车号服务中心</a></li>
+                    <li><a href="">名人堂</a></li>
+                </ul>
+            </div>
+            <div class="f-three">
+                <div class="f-box">
+                    <ul>
+                        <li><i class="icons-xiazai"></i><P>客户端下载</P></li>
+                        <li><i class="icons-weibo"></i><P>新浪微博</P></li>
+                        <li><i class="icons-weixin"></i><P>官方微信</P></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="bb-one">
+                <img src="images/partner.png" alt="">
+                <img src="images/partner-2.png" alt="">
+                <img src="images/partner-3.png" alt="">
+            </div>
+            <div class="b-two">
+                <p>广播电视节目制作经营许可证：（沪）字第1248号|网络文化经营许可证：沪网文【2016】2296-134号|信息网络传播视听节目许可证：0910417</p>
+                <p>互联网ICP备案：<a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备13002172号-3</a>沪ICP证：沪B2-20100043 |违法不良信息举报邮箱：help@bilibili.com |违法不良信息举报电话：4000233233转3 | <a href="" >营业执照</a></p>
+                <p><i class="hz_icon-1"></i><a href="" >上海互联网举报中心</a> | <a href="" target="_blank">12318全国文化市场举报网站</a> | <i class="hz_icon-3"></i><a href="" >沪公网安备31011002002436号</a> | <a href="">儿童色情信息举报专区</a></p>
+                <p>网上有害信息举报专区：<i class="hz_icon-2"></i><a href="" >中国互联网违法和不良信息举报中心</a></p>
+                <p>亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</p>
+                <p>公司名称：上海宽娱数码科技有限公司|公司地址：上海市杨浦区政立路485号|电话：021-25099888</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
